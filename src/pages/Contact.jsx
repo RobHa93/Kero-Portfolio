@@ -10,9 +10,11 @@ const Contact = () => {
      <div className="container mx-auto lg:grid lg:grid-cols-2 lg:gap-10 py-16">
       {/* Linke Spalte: Social Links */}
       <div className="bg-zinc-900 text-white p-8 flex flex-col items-center justify-start">
-        <h2 className="text-3xl font-bold mb-6">Kontaktieren Sie mich</h2>
+        <h2 className="text-3xl font-bold mb-6">
+          Kontaktieren Sie <span className="bg-linear-to-r from-yellow-400 via-lime-400 to-green-500 bg-clip-text text-transparent">UNS</span> gerne
+        </h2>
         <p className="text-gray-200 mb-8">
-          Sie finden mich hier:
+          Sie finden uns hier:
         </p>
 
         <div className="flex justify-center gap-6 text-3xl">

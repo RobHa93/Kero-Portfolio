@@ -1,5 +1,3 @@
-import { ButtonPrimary, ButtonOutline } from "./button";
-
 
 const Hero = () => {
   return (
@@ -13,16 +11,6 @@ const Hero = () => {
   {/* ===== LEFT SIDE ===== */}
   <div>
     <div className='flex items-center gap-3'>
-    <figure className='img-box w-9 h-9 rounded-lg'>
-        <img 
-         src="/assets/img/Foto.png" 
-        width={40}
-        height={40}
-        alt='Kevin portrait'
-        className='img-cover'
-        />
-        
-        </figure>
 
     <div className='flex items-center gap-1.5 text-zinc-400 text-sm tracking-wide'>
 
@@ -32,37 +20,26 @@ const Hero = () => {
             </span>
 
         </span>
-        Available for work
-
+                We are Available for freelance projects
     </div>
     </div>
 
 
-<h2 className='headline-1 max-w-[15ch] sm:max-w-[20ch] lg:max-w-[15ch] mt-5 mb-8 lg:mb-10'>
-Digitale Projekte, die begeistern
+<h1 className="font-extrabold bg-linear-to-r from-yellow-400 via-lime-400 to-green-500 bg-clip-text text-transparent mt-5 mb-20 md:text-7xl p-7">
+  Digitale Projekte, die begeistern
+</h1>
 
-</h2>
-
-<div className='flex items-center gap-3'>
-    <ButtonPrimary 
-    label=" Zertifikate  "
-    icon="download"
-    />
-
-    <ButtonOutline 
-    href="#about"
-    label="Scroll down"
-    icon="arrow_downward"
-    />
+                <p className="text-zinc-300 mb-6 md:text-lg max-w-xl">
+                  Herzlich willkommen auf unserem digitalen Portfolio! Wir sind Robin und Kevin, leidenschaftliche Fullstack-Webentwickler. Wir entwickeln smarte, skalierbare und kreative Webanwendungen, die Spaß machen und echten Mehrwert bieten.
+                </p>
 
 
-</div>
 </div>
    {/* ===== RIGHT SIDE ===== */}
 <div className='hidden lg:block'>
-<figure className='w-full max-w-[480px] ml-auto bg-gradiant-to-t from-sky-400 via-25% via-sky-400/40 to-65% rounded-[60px] overflow-hidden'>
+<figure className='w-full max-w-120 ml-auto bg-linear-to-t from-sky-400 via-25% via-sky-400/40 to-65% rounded-[60px] overflow-hidden'>
 <img
-src="/assets/img/Foto.png" 
+src="/assets/img/heroplaceholder.png" 
 alt='Kevin Hasler'
 width={656}
 height={80}

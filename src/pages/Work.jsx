@@ -31,7 +31,7 @@ const works = [
     projectLink: "#",
   },
   {
-    imgSrc: "/assets/img/usLuzern.jpg",
+    imgSrc: "/assets/img/usluzern.jpg",
     title: "usLuzern Shop",
     tags: ["eCommerce","Web-design", "Development"],
     projectLink: "#",
@@ -41,17 +41,19 @@ const works = [
 export default function Work() {
   return (
     <div className="min-h-screen bg-zinc-900 py-16 px-4">
-      <h2 className="text-4xl text-white font-bold text-center mb-12">Meine Projekte</h2>
+      <h2 className="text-4xl font-bold text-center mb-12">
+        Ein paar unserer <span className="bg-linear-to-r from-yellow-400 via-lime-400 to-green-500 bg-clip-text text-transparent">Projekte</span>
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {works.map((project, idx) => (
           <div
             key={idx}
-            className="bg-zinc-700 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow"
+            className="bg-zinc-700 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow h-100 justify-between flex flex-col"
           >
             <img
               src={project.imgSrc}
               alt={project.title}
-              className="w-full h-48 object-cover"
+              className="w-full h-48 object-fill"
             />
             <div className="p-4">
               <h3 className="text-xl text-white font-semibold mb-2">{project.title}</h3>

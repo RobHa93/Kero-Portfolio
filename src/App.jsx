@@ -2,6 +2,8 @@ import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Skill from "./components/Skill.jsx";
+import ScrollToTop from './components/ScrollToTop';
+
 
 
 /*  import Home from "./pages/Home";*/
@@ -37,6 +39,7 @@ function App() {
       <section id="contact">
         <Contact />
       </section>
+      <ScrollToTop />
     </div>
   );
 }

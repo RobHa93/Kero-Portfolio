@@ -15,7 +15,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo / Brand */}
-          <div className="text-2xl font-bold">Kevin</div>
+          <div className="text-2xl font-bold select-none">
+            <span className="bg-linear-to-r from-yellow-400 via-lime-400 to-green-500 bg-clip-text text-transparent">
+              KeRo
+            </span>{' '}
+            <span className="bg-linear-to-r from-yellow-400 via-lime-400 to-green-500 bg-clip-text text-transparent">WebDev</span>
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6">
