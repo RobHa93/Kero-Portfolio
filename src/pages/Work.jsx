@@ -52,7 +52,7 @@ const works = [
 const tagStyles = {
   Website:     "bg-sky-400/10 text-sky-400 border-sky-400/20",
   SPA:         "bg-purple-400/10 text-purple-400 border-purple-400/20",
-  "Web Design":"bg-emerald-400/10 text-emerald-400 border-emerald-400/20",
+  "Web Design":"bg-sky-400/10 text-sky-400 border-sky-400/20",
   Development: "bg-zinc-600/30 text-zinc-400 border-zinc-600/40",
   eCommerce:   "bg-orange-400/10 text-orange-400 border-orange-400/20",
   API:         "bg-blue-400/10 text-blue-400 border-blue-400/20",
@@ -68,44 +68,44 @@ export default function Work() {
       <div className="container">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="h-px w-8 bg-emerald-400" />
-          <span className="text-emerald-400 text-sm font-medium tracking-widest uppercase">
+          <div className="w-8 h-px bg-sky-400" />
+          <span className="text-sm font-medium tracking-widest uppercase text-sky-400">
             Projekte
           </span>
         </div>
 
         <div className="mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="mb-4 text-4xl font-bold text-white">
             Ausgewählte Projekte
           </h2>
-          <p className="text-zinc-400 max-w-xl leading-relaxed">
+          <p className="max-w-xl leading-relaxed text-zinc-400">
             Ein Einblick in unsere Arbeit — von kreativen Websites bis zu
             komplexen Full-Stack-Anwendungen.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {works.map((project, idx) => (
             <div
               key={idx}
-              className="group flex flex-col bg-white/3 border border-white/8 rounded-2xl overflow-hidden hover:border-emerald-400/25 hover:bg-white/5 transition-all duration-300"
+              className="flex flex-col overflow-hidden transition-all duration-300 border group bg-white/3 border-white/8 rounded-2xl hover:border-sky-400/25 hover:bg-white/5"
             >
               {/* Image */}
-              <div className="relative overflow-hidden h-48 shrink-0">
+              <div className="relative h-48 overflow-hidden shrink-0">
                 <img
                   src={project.imgSrc}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-zinc-950/60 to-transparent" />
               </div>
 
               {/* Content */}
-              <div className="p-5 flex flex-col flex-1">
-                <h3 className="text-white font-semibold text-lg mb-2">
+              <div className="flex flex-col flex-1 p-5">
+                <h3 className="mb-2 text-lg font-semibold text-white">
                   {project.title}
                 </h3>
-                <p className="text-zinc-500 text-sm leading-relaxed mb-4 flex-1">
+                <p className="flex-1 mb-4 text-sm leading-relaxed text-zinc-500">
                   {project.description}
                 </p>
 
@@ -127,11 +127,11 @@ export default function Work() {
                     href={project.projectLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 font-medium transition-colors group/link"
+                    className="inline-flex items-center gap-2 text-sm font-medium transition-colors text-sky-400 hover:text-sky-300 group/link"
                   >
                     Live ansehen
                     <svg
-                      className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-200"
+                      className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"

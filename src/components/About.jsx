@@ -4,25 +4,25 @@ const About = () => {
       <div className="container">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="h-px w-8 bg-emerald-400" />
-          <span className="text-emerald-400 text-sm font-medium tracking-widest uppercase">
+          <div className="w-8 h-px bg-sky-400" />
+          <span className="text-sm font-medium tracking-widest uppercase text-sky-400">
             Über uns
           </span>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid items-start gap-12 md:grid-cols-2">
           {/* Left — text & stats */}
           <div>
-            <h2 className="text-4xl font-bold text-white mb-6 leading-tight">
+            <h2 className="mb-6 text-4xl font-bold leading-tight text-white">
               Wer steckt hinter<br />KeRo WebDev?
             </h2>
-            <p className="text-zinc-400 text-lg leading-relaxed mb-4">
+            <p className="mb-4 text-lg leading-relaxed text-zinc-400">
               Hi, wir sind Robin und Kevin! Als Full-Stack Webentwickler
               verbinden wir modernes Frontend-Design mit stabiler
               Backend-Architektur und setzen Projekte von Online-Shops bis zu
               Industrie-Anwendungen um.
             </p>
-            <p className="text-zinc-500 leading-relaxed mb-10">
+            <p className="mb-10 leading-relaxed text-zinc-500">
               Unser Tech-Stack umfasst u.a. Vue.js, React, Tailwind CSS,
               Node.js, Express.js, MySQL und MongoDB. Viele Projekte entstehen
               im Rahmen von NDA-geschützten Aufträgen — hier zeigen wir eine
@@ -35,9 +35,9 @@ const About = () => {
                 { number: "10+", label: "Projekte abgeschlossen" },
                 { number: "2+", label: "Jahre Erfahrung" },
               ].map(({ number, label }) => (
-                <div key={label} className="border-l-2 border-emerald-400 pl-4">
+                <div key={label} className="pl-4 border-l-2 border-sky-400">
                   <div className="text-3xl font-bold text-white">{number}</div>
-                  <div className="text-sm text-zinc-500 mt-1">{label}</div>
+                  <div className="mt-1 text-sm text-zinc-500">{label}</div>
                 </div>
               ))}
             </div>
@@ -45,8 +45,8 @@ const About = () => {
 
           {/* Right — tech tags + availability card */}
           <div className="flex flex-col gap-4">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-              <h3 className="text-white font-semibold mb-4">
+            <div className="p-6 border bg-white/5 border-white/10 rounded-2xl">
+              <h3 className="mb-4 font-semibold text-white">
                 Full-Stack Expertise
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -63,7 +63,7 @@ const About = () => {
                 ].map((tag) => (
                   <span
                     key={tag}
-                    className="text-sm text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-1 rounded-full"
+                    className="px-3 py-1 text-sm border rounded-full text-zinc-300 bg-zinc-800 border-zinc-700"
                   >
                     {tag}
                   </span>
@@ -71,17 +71,17 @@ const About = () => {
               </div>
             </div>
 
-            <div className="bg-emerald-400/5 border border-emerald-400/20 rounded-2xl p-6">
+            <div className="p-6 border bg-sky-400/5 border-sky-400/20 rounded-2xl">
               <div className="flex items-center gap-2 mb-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                <span className="relative flex w-2 h-2">
+                  <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-sky-400" />
+                  <span className="relative inline-flex w-2 h-2 rounded-full bg-sky-400" />
                 </span>
-                <span className="text-emerald-400 text-sm font-medium">
+                <span className="text-sm font-medium text-sky-400">
                   Available for work
                 </span>
               </div>
-              <p className="text-zinc-400 text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed text-zinc-400">
                 Wir sind offen für neue Freelance-Projekte und
                 Kooperationen. Sprechen Sie uns gerne an!
               </p>

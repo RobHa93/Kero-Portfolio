@@ -12,7 +12,7 @@ const ScrollToTop = () => {
 
   return (
     <button
-      className={`fixed bottom-8 right-8 bg-emerald-400 text-zinc-950 p-3 rounded-full shadow-lg hover:bg-emerald-300 transition-all duration-300 z-50 ${
+      className={`fixed bottom-8 right-8 bg-sky-400 text-zinc-950 p-3 rounded-full shadow-lg hover:bg-emerald-300 transition-all duration-300 z-50 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

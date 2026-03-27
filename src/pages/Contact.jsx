@@ -4,41 +4,22 @@ const Contact = () => {
       <div className="container">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="h-px w-8 bg-emerald-400" />
-          <span className="text-emerald-400 text-sm font-medium tracking-widest uppercase">
+          <div className="w-8 h-px bg-sky-400" />
+          <span className="text-sm font-medium tracking-widest uppercase text-sky-400">
             Kontakt
           </span>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid items-start gap-12 md:grid-cols-2">
           {/* Left — heading & socials */}
           <div>
-            <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-              Starten Sie Ihr<br />nächstes Projekt.
+            <h2 className="mb-4 text-4xl font-bold leading-tight text-white">
+              Starten WIR gemeinsam <br /> ihr nächstes Projekt.
             </h2>
-            <p className="text-zinc-400 leading-relaxed mb-8">
+            <p className="mb-8 leading-relaxed text-zinc-400">
               Sie haben ein Projekt, eine Idee oder möchten einfach in Kontakt
               treten? Schreiben Sie uns — wir freuen uns auf Ihre Nachricht.
             </p>
-
-            {/* Social pill links */}
-            <div className="flex flex-wrap gap-3">
-              {[
-                { label: "GitHub",    href: "#" },
-                { label: "LinkedIn",  href: "#" },
-                { label: "Instagram", href: "#" },
-              ].map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-zinc-400 hover:text-emerald-400 border border-white/10 hover:border-emerald-400/30 px-4 py-2 rounded-full transition-all duration-200"
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Right — form */}
@@ -47,20 +28,20 @@ const Contact = () => {
             method="POST"
             className="flex flex-col gap-4"
           >
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid gap-4 sm:grid-cols-2">
               <input
                 type="text"
                 name="name"
                 placeholder="Ihr Name"
                 required
-                className="bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-400/50 transition-all duration-200"
+                className="px-4 py-3 text-sm text-white transition-all duration-200 border bg-white/5 border-white/10 placeholder:text-zinc-600 rounded-xl focus:outline-none focus:border-sky-400/50"
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Ihre E-Mail"
                 required
-                className="bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-400/50 transition-all duration-200"
+                className="px-4 py-3 text-sm text-white transition-all duration-200 border bg-white/5 border-white/10 placeholder:text-zinc-600 rounded-xl focus:outline-none focus:border-sky-400/50"
               />
             </div>
             <textarea
@@ -68,11 +49,11 @@ const Contact = () => {
               placeholder="Ihre Nachricht..."
               required
               rows={6}
-              className="bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-400/50 transition-all duration-200 resize-none"
+              className="px-4 py-3 text-sm text-white transition-all duration-200 border resize-none bg-white/5 border-white/10 placeholder:text-zinc-600 rounded-xl focus:outline-none focus:border-sky-400/50"
             />
             <button
               type="submit"
-              className="bg-emerald-400 text-zinc-950 font-semibold py-3 px-6 rounded-xl hover:bg-emerald-300 transition-colors duration-200 w-full sm:w-auto sm:self-start"
+              className="w-full px-6 py-3 font-semibold transition-colors duration-200 bg-sky-400 text-zinc-950 rounded-xl hover:bg-emerald-300 sm:w-auto sm:self-start"
             >
               Nachricht senden
             </button>

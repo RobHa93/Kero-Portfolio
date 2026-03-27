@@ -24,38 +24,38 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a
             href="#home"
             className="flex items-center gap-0.5 text-white font-bold text-xl tracking-tight select-none"
           >
-            KeRo<span className="text-emerald-400">.</span>
+            KeRo<span className="text-sky-400">.</span>
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="items-center hidden gap-8 md:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-zinc-400 hover:text-white transition-colors duration-200"
+                className="text-sm transition-colors duration-200 text-zinc-400 hover:text-white"
               >
                 {item.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="text-sm bg-emerald-400 text-zinc-950 font-semibold px-4 py-2 rounded-full hover:bg-emerald-300 transition-colors duration-200"
+              className="px-4 py-2 text-sm font-semibold transition-colors duration-200 rounded-full bg-sky-400 text-zinc-950 hover:bg-emerald-300"
             >
-              Hire Us
+              Anfrage senden
             </a>
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-zinc-400 hover:text-white p-2 transition-colors"
+            className="p-2 transition-colors md:hidden text-zinc-400 hover:text-white"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -74,7 +74,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-zinc-950/95 backdrop-blur-md border-t border-white/5 px-4 py-4 space-y-1">
+        <div className="px-4 py-4 space-y-1 border-t md:hidden bg-zinc-950/95 backdrop-blur-md border-white/5">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -88,10 +88,10 @@ const Navbar = () => {
           <div className="pt-2">
             <a
               href="#contact"
-              className="block text-center bg-emerald-400 text-zinc-950 font-semibold px-4 py-2.5 rounded-full hover:bg-emerald-300 transition-colors text-sm"
+              className="block text-center bg-sky-400 text-zinc-950 font-semibold px-4 py-2.5 rounded-full hover:bg-emerald-300 transition-colors text-sm"
               onClick={() => setMenuOpen(false)}
             >
-              Hire Us
+               Anfrage senden
             </a>
           </div>
         </div>

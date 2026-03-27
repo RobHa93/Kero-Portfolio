@@ -17,24 +17,24 @@ const Skill = () => {
       <div className="container">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
-          <div className="h-px w-8 bg-emerald-400" />
-          <span className="text-emerald-400 text-sm font-medium tracking-widest uppercase">
+          <div className="w-8 h-px bg-sky-400" />
+          <span className="text-sm font-medium tracking-widest uppercase text-sky-400">
             Tech Stack
           </span>
         </div>
 
         <div className="mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="mb-4 text-4xl font-bold text-white">
             Tools &amp; Technologien
           </h2>
-          <p className="text-zinc-400 max-w-2xl leading-relaxed">
+          <p className="max-w-2xl leading-relaxed text-zinc-400">
             Wir entwickeln mit modernen Frameworks und Tools — von der Idee bis
             zum fertigen Produkt. Unser Fokus: performante, skalierbare und
             benutzerfreundliche Webanwendungen.
           </p>
         </div>
 
-        <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {skillItem.map(({ imgSrc, label, desc }, key) => (
             <SkillCard key={key} imgSrc={imgSrc} label={label} desc={desc} />
           ))}

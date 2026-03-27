@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const endings = [
   "die begeistern.",
   "die überzeugen.",
-  "die bleiben.",
+  "die bleiben."
 ];
 
 const Hero = () => {
@@ -27,24 +27,24 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center bg-zinc-950 overflow-hidden"
+      className="relative flex items-center min-h-screen overflow-hidden bg-zinc-950"
     >
       {/* Grid overlay */}
-      <div className="absolute inset-0 grid-bg pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none grid-bg" />
 
       {/* Ambient glow blobs */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-sky-500/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute rounded-full pointer-events-none top-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 blur-3xl" />
+      <div className="absolute w-64 h-64 rounded-full pointer-events-none bottom-1/3 left-1/4 bg-sky-500/8 blur-3xl" />
 
       <div className="container relative z-10 pt-24 pb-16">
         {/* Availability badge */}
-        <div className="animate-fade-in-up flex items-center gap-2 mb-8 w-fit">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+        <div className="flex items-center gap-2 mb-8 animate-fade-in-up w-fit">
+          <span className="relative flex w-2 h-2">
+            <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-emerald-400" />
+            <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-400" />
           </span>
-          <span className="text-sm text-zinc-400 tracking-wide">
-            Available for freelance projects
+          <span className="text-sm tracking-wide text-zinc-400">
+            Verfügbar für neue Projekte
           </span>
         </div>
 
@@ -56,7 +56,7 @@ const Hero = () => {
           Digitale Projekte,
           <br />
           <span
-            className="text-emerald-400 transition-opacity duration-400"
+            className="transition-opacity text-sky-400 duration-400"
             style={{ opacity: visible ? 1 : 0 }}
           >
             {endings[index]}
@@ -65,7 +65,7 @@ const Hero = () => {
 
         {/* Sub-headline */}
         <p
-          className="animate-fade-in-up text-lg text-zinc-400 max-w-xl mb-10 leading-relaxed"
+          className="max-w-xl mb-10 text-lg leading-relaxed animate-fade-in-up text-zinc-400"
           style={{ animationDelay: "0.2s" }}
         >
           Wir sind Robin &amp; Kevin — Full-Stack Webentwickler aus der Schweiz.
@@ -75,18 +75,18 @@ const Hero = () => {
 
         {/* CTA buttons */}
         <div
-          className="animate-fade-in-up flex flex-wrap gap-4"
+          className="flex flex-wrap gap-4 animate-fade-in-up"
           style={{ animationDelay: "0.3s" }}
         >
           <a
             href="#work"
-            className="bg-emerald-400 text-zinc-950 font-semibold px-6 py-3 rounded-full hover:bg-emerald-300 hover:scale-105 transition-all duration-200"
+            className="px-6 py-3 font-semibold transition-all duration-200 rounded-full bg-sky-400 text-zinc-950 hover:bg-emerald-300 hover:scale-105"
           >
             Projekte ansehen
           </a>
           <a
             href="#contact"
-            className="border border-white/15 text-white font-medium px-6 py-3 rounded-full hover:bg-white/5 hover:border-white/30 transition-all duration-200"
+            className="px-6 py-3 font-medium text-white transition-all duration-200 border rounded-full border-white/15 hover:bg-white/5 hover:border-white/30"
           >
             Kontakt aufnehmen
           </a>
@@ -94,7 +94,7 @@ const Hero = () => {
 
         {/* Stats row */}
         <div
-          className="animate-fade-in-up flex flex-wrap gap-10 mt-16 pt-12 border-t border-white/5"
+          className="flex flex-wrap gap-10 pt-12 mt-16 border-t animate-fade-in-up border-white/5"
           style={{ animationDelay: "0.4s" }}
         >
           {[
@@ -104,7 +104,7 @@ const Hero = () => {
           ].map(({ number, label }) => (
             <div key={label}>
               <div className="text-2xl font-bold text-white">{number}</div>
-              <div className="text-sm text-zinc-500 mt-1">{label}</div>
+              <div className="mt-1 text-sm text-zinc-500">{label}</div>
             </div>
           ))}
         </div>
