@@ -1,63 +1,96 @@
-
-const aboutItems = [
-  {
-    label: 'Project done',
-    number: 10
-  },
-  {
-    label: 'Years of experience',
-    number: 2
-  }
-];
-
-
-
 const About = () => {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section bg-zinc-950">
       <div className="container">
-        <div className="bg-zinc-800/50 p-7 mt-10 rounded-2xl md:p-12">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            {/* Linke Seite: Text und Zahlen */}
-            <div className="flex-1 min-w-0">
-              <h1 className="text-2xl mb-4 md:mb-8 md:max-w-[60ch]">
-                <span className="bg-linear-to-r from-yellow-400 via-lime-400 to-green-500 bg-clip-text text-transparent">Wer sind wir?</span>
-              </h1>
-              <p className="text-zinc-300 mb-4 md:mb-8 md:text-xl md:max-w-[60ch]">
-                Hi, wir sind Robin und Kevin!
-                Als Full-Stack Webentwickler verbinden wir modernes Frontend-Design mit stabiler Backend-Architektur und setzen Projekte von Online-Shops bis zu Industrie-Anwendungen um. Unser Tech-Stack umfasst u.a. Vue.js, React, Tailwind CSS, Node.js, Express.js, MySQL und MongoDB. Viele Projekte entstehen im Rahmen von NDA-geschützten Aufträgen, aber hier zeigen wir euch eine Auswahl typischer Arbeiten und Herzensprojekte. Wir lieben es, gemeinsam innovative Ideen zum Leben zu erwecken und digitale Visionen Wirklichkeit werden zu lassen.
-              </p>
-              <div className="flex gap-8 mb-4">
-                {aboutItems.map(({ label, number }, key) => (
-                  <div key={key} className="flex flex-col items-start">
-                    <div className="flex items-center md:mb-2">
-                      <span className="text-2xl font-bold md:text-4xl">
-                        {number}
-                      </span>
-                      <span className="text-sky-400 font-semibold md:text-3xl">+</span>
-                    </div>
-                    <p className="text-sm text-zinc-400">{label}</p>
-                  </div>
+        {/* Section label */}
+        <div className="flex items-center gap-3 mb-12">
+          <div className="h-px w-8 bg-emerald-400" />
+          <span className="text-emerald-400 text-sm font-medium tracking-widest uppercase">
+            Über uns
+          </span>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Left — text & stats */}
+          <div>
+            <h2 className="text-4xl font-bold text-white mb-6 leading-tight">
+              Wer steckt hinter<br />KeRo WebDev?
+            </h2>
+            <p className="text-zinc-400 text-lg leading-relaxed mb-4">
+              Hi, wir sind Robin und Kevin! Als Full-Stack Webentwickler
+              verbinden wir modernes Frontend-Design mit stabiler
+              Backend-Architektur und setzen Projekte von Online-Shops bis zu
+              Industrie-Anwendungen um.
+            </p>
+            <p className="text-zinc-500 leading-relaxed mb-10">
+              Unser Tech-Stack umfasst u.a. Vue.js, React, Tailwind CSS,
+              Node.js, Express.js, MySQL und MongoDB. Viele Projekte entstehen
+              im Rahmen von NDA-geschützten Aufträgen — hier zeigen wir eine
+              Auswahl typischer Arbeiten und Herzensprojekte.
+            </p>
+
+            {/* Stats */}
+            <div className="flex gap-8">
+              {[
+                { number: "10+", label: "Projekte abgeschlossen" },
+                { number: "2+", label: "Jahre Erfahrung" },
+              ].map(({ number, label }) => (
+                <div key={label} className="border-l-2 border-emerald-400 pl-4">
+                  <div className="text-3xl font-bold text-white">{number}</div>
+                  <div className="text-sm text-zinc-500 mt-1">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — tech tags + availability card */}
+          <div className="flex flex-col gap-4">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <h3 className="text-white font-semibold mb-4">
+                Full-Stack Expertise
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "React",
+                  "Vue.js",
+                  "Node.js",
+                  "Express.js",
+                  "Tailwind CSS",
+                  "MySQL",
+                  "MongoDB",
+                  "CI/CD",
+                  "GitLab",
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-sm text-zinc-300 bg-zinc-800 border border-zinc-700 px-3 py-1 rounded-full"
+                  >
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>
-            {/* Rechte Seite: Bild */}
-            <div className="shrink-0 flex justify-center w-full md:w-auto">
-              <div className="flex gap-4">
-                <img
-                  src="public/assets/img/learn-by-doing.png"
-                  alt="Logo"
-                  width={300}
-                  height={300}
-                  className="md:w-75 md:h-80 rounded-xl object-contain"
-                />
+
+            <div className="bg-emerald-400/5 border border-emerald-400/20 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                </span>
+                <span className="text-emerald-400 text-sm font-medium">
+                  Available for work
+                </span>
               </div>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                Wir sind offen für neue Freelance-Projekte und
+                Kooperationen. Sprechen Sie uns gerne an!
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default About
+export default About;

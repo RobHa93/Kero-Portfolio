@@ -1,76 +1,103 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navItems = [
-  { label: "Home", link: "#home" },
-  { label: "Work", link: "#work" },
-  { label: "Kontakt", link: "#reviews" },
-  { label: "Contact", link: "#contact", mobileOnly: true },
+  { label: "Projekte", href: "#work" },
+  { label: "Über uns", href: "#about" },
+  { label: "Kontakt", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-zinc-900 text-white fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          {/* Logo / Brand */}
-          <div className="text-2xl font-bold select-none">
-            <span className="bg-linear-to-r from-yellow-400 via-lime-400 to-green-500 bg-clip-text text-transparent">
-              KeRo
-            </span>{' '}
-            <span className="bg-linear-to-r from-yellow-400 via-lime-400 to-green-500 bg-clip-text text-transparent">WebDev</span>
-          </div>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-zinc-950/90 backdrop-blur-md border-b border-white/5"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <a
+            href="#home"
+            className="flex items-center gap-0.5 text-white font-bold text-xl tracking-tight select-none"
+          >
+            KeRo<span className="text-emerald-400">.</span>
+          </a>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
-            {navItems
-              .filter((item) => !item.mobileOnly)
-              .map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.link}
-                  className="hover:text-gray-300 transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-          </div>
-
-          {/* Mobile Hamburger */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="focus:outline-none"
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm text-zinc-400 hover:text-white transition-colors duration-200"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              className="text-sm bg-emerald-400 text-zinc-950 font-semibold px-4 py-2 rounded-full hover:bg-emerald-300 transition-colors duration-200"
             >
-              {menuOpen ? (
-                <span className="text-2xl">&#10005;</span> // X
-              ) : (
-                <span className="text-2xl">&#9776;</span> // Hamburger
-              )}
-            </button>
+              Hire Us
+            </a>
           </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden text-zinc-400 hover:text-white p-2 transition-colors"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-zinc-800 px-4 py-2 space-y-2">
-          {navItems.map((item, idx) => (
+        <div className="md:hidden bg-zinc-950/95 backdrop-blur-md border-t border-white/5 px-4 py-4 space-y-1">
+          {navItems.map((item) => (
             <a
-              key={idx}
-              href={item.link}
-              className="block hover:text-gray-300 transition-colors"
+              key={item.href}
+              href={item.href}
+              className="block text-zinc-400 hover:text-white transition-colors py-2.5 text-sm"
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
             </a>
           ))}
+          <div className="pt-2">
+            <a
+              href="#contact"
+              className="block text-center bg-emerald-400 text-zinc-950 font-semibold px-4 py-2.5 rounded-full hover:bg-emerald-300 transition-colors text-sm"
+              onClick={() => setMenuOpen(false)}
+            >
+              Hire Us
+            </a>
+          </div>
         </div>
       )}
     </nav>
   );
 };
 
-// Export nicht vergessen!
 export default Navbar;
