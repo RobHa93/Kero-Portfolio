@@ -168,3 +168,20 @@ body {
 .btn-outline:active {
   background-color: rgb(39 39 42);
 }
+
+/* ── Lanyard card swing-in animation ─────────────── */
+@keyframes swingIn {
+  0%   { transform: rotate(50deg); opacity: 0; }
+  12%  { opacity: 1; }
+  55%  { transform: rotate(-10deg); }
+  70%  { transform: rotate(6deg); }
+  82%  { transform: rotate(-2.5deg); }
+  91%  { transform: rotate(1.5deg); }
+  96%  { transform: rotate(-0.5deg); }
+  100% { transform: rotate(3deg); }
+}
+
+.swing-in {
+  transform-origin: top center;
+  animation: swingIn 2.2s ease-out 0.8s both;
+}

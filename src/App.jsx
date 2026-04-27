@@ -4,6 +4,7 @@ import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Skill from "./components/Skill.jsx";
 import Work from "./pages/Work.jsx";
+import Pricing from "./pages/Pricing.jsx";
 import Contact from "./pages/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
@@ -23,10 +24,11 @@ function App() {
         }}
       >
         <Navbar />
-        <Hero />
+        <Hero loaded={loaded} />
         <About />
         <Skill />
         <Work />
+        <Pricing />
         <Contact />
         <Footer />
         <ScrollToTop />

@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import LanyardCard from "./LanyardCard.jsx";
 
 const endings = [
   "die begeistern.",
@@ -7,7 +8,7 @@ const endings = [
   "die bleiben."
 ];
 
-const Hero = () => {
+const Hero = ({ loaded }) => {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -35,6 +36,14 @@ const Hero = () => {
       {/* Ambient glow blobs */}
       <div className="absolute rounded-full pointer-events-none top-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 blur-3xl" />
       <div className="absolute w-64 h-64 rounded-full pointer-events-none bottom-1/3 left-1/4 bg-sky-500/8 blur-3xl" />
+
+      {/* Lanyard Card – right side, swings in on load */}
+      <div
+        className="absolute top-0 z-10 hidden lg:block"
+        style={{ right: "10%" }}
+      >
+        <LanyardCard ready={loaded} />
+      </div>
 
       <div className="container relative z-10 pt-24 pb-16">
         {/* Availability badge */}
