@@ -44,9 +44,9 @@ const Hero = ({ loaded }) => {
       >
         <LanyardCard
           ready={loaded}
-          name="Robin"
+          name="Kevin"
           role="Full-Stack Developer"
-          photo="/assets/img/Foto.png"
+          photo1="/assets/img/img_kevin.png"
           tags={["Frontend", "Vue.js", "React"]}
           delay={0}
         />
@@ -60,9 +60,9 @@ const Hero = ({ loaded }) => {
         <LanyardCard
           stringHeight="46vh"
           ready={loaded}
-          name="Kevin"
+          name="Robin"
           role="Full-Stack Developer"
-          photo="/assets/img/Foto.png"
+          photo1="/assets/img/img_robin.jpeg"
           tags={["Backend", "Node.js", "Docker"]}
           delay={0.25}
         />
@@ -100,7 +100,7 @@ const Hero = ({ loaded }) => {
           className="max-w-xl mb-10 text-lg leading-relaxed animate-fade-in-up text-zinc-400"
           style={{ animationDelay: "0.2s" }}
         >
-        Wir sind Robin & Kevin — zwei Full-Stack Webentwickler aus der Schweiz.
+        Wir sind Kevin & Robin, zwei Full-Stack Webentwickler aus der Schweiz.
         Wir entwickeln durchdachte Webanwendungen, die nicht nur gut aussehen, sondern Prozesse vereinfachen,
         skalieren und echten Mehrwert schaffen.
         </p>

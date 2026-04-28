@@ -17,7 +17,7 @@ const About = () => {
               Wer steckt hinter<br />KeRo WebDev?
             </h2>
             <p className="mb-4 text-lg leading-relaxed text-zinc-400">
-              Hi, wir sind Robin und Kevin, die Köpfe hinter KeRo WebDev.
+              Hi, wir sind Kevin und Robin, die Köpfe hinter KeRo WebDev.
               Als Full-Stack Webentwickler entwickeln wir moderne Weblösungen von Grund auf: von der ersten Idee bis zum produktiven Einsatz.
               <br />
               <br />

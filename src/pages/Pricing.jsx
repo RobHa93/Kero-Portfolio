@@ -2,64 +2,62 @@ import { useState } from "react";
 
 const tiers = [
   {
-    id: "start",
-    name: "Kero-Web Start",
-    description: "Perfekt für einen professionellen ersten Auftritt im Web.",
-    setup: "CHF 1'200",
-    price: { monthly: "CHF 49", annually: "CHF 470" },
-    billingNote: { monthly: "pro Monat", annually: "pro Jahr (2 Monate gratis)" },
+    id: "hosting",
+    name: "Kero-Web: Hosting",
+    description: "Deine Website läuft — zuverlässig, sicher und immer erreichbar.",
+    setupOnepager: "ab CHF 299.-",
+    setupMultipager: "ab CHF 999.-",
+    price: { monthly: "CHF 49.-", annually: "CHF 588.-" },
     featured: false,
     highlights: [
-      "Onepager",
+      "Hosting & Betrieb",
+      "SSL-Zertifikat",
+      "Automatische Backups",
+      "Uptime-Monitoring",
       "Mobile optimiert",
-      "Kontaktformular",
-      "Google Maps",
-      "Hosting",
-      "SSL",
-      "Backup",
-      "1 kleine Änderung pro Monat",
     ],
+    note: null,
   },
   {
     id: "business",
-    name: "Kero-Web Business",
-    description: "Für wachsende Unternehmen mit mehr Inhalt und Reichweite.",
-    setup: "CHF 2'500",
-    price: { monthly: "CHF 99", annually: "CHF 950" },
-    billingNote: { monthly: "pro Monat", annually: "pro Jahr (2 Monate gratis)" },
+    name: "Kero-Web: Business",
+    description: "Laufende Betreuung für deinen professionellen Webauftritt.",
+    setupOnepager: "ab CHF 299.-",
+    setupMultipager: "ab CHF 999.-",
+    price: { monthly: "CHF 75.-", annually: "CHF 900.-" },
     featured: true,
     highlights: [
-      "5 Seiten",
+      "Alles aus Hosting",
       "SEO-Basics",
-      "Bildergalerie",
-      "Kontaktformular",
       "Performance-Optimierung",
-      "Hosting",
-      "Updates",
+      "Kontaktformular & Bildergalerie",
       "2 kleine Änderungen pro Monat",
+      "Updates & Sicherheits-Patches",
     ],
+    note: "Grössere Änderungen werden nach Aufwand separat offeriert.",
   },
   {
     id: "pro",
-    name: "Kero-Web Pro",
-    description: "Massgeschneiderte Lösungen für komplexe Anforderungen.",
-    setup: "ab CHF 4'000",
-    price: { monthly: "CHF 199", annually: "CHF 1'910" },
-    billingNote: { monthly: "pro Monat", annually: "pro Jahr (2 Monate gratis)" },
+    name: "Kero-Web: Pro",
+    description: "Maximale Betreuung — für anspruchsvolle Projekte mit hohem Bedarf.",
+    setupOnepager: "ab CHF 799.-",
+    setupMultipager: "ab CHF 1'499.-",
+    price: { monthly: "CHF 149.-", annually: "CHF 1'788.-" },
     featured: false,
     highlights: [
-      "Individuelle Website",
-      "Admin-Bereich optional",
-      "Regelmässige Änderungen",
-      "Monitoring",
+      "Alles aus Business",
+      "Bis zu 5 kleine Änderungen pro Monat",
       "Priorisierter Support",
+      "Monitoring & Alerting",
+      "Regelmässige Performance-Reports",
     ],
+    note: "Grössere Änderungen werden nach Aufwand separat offeriert.",
   },
 ];
 
 const CheckIcon = () => (
   <svg
-    className="w-4 h-4 flex-none text-sky-400"
+    className="flex-none w-4 h-4 text-sky-400"
     viewBox="0 0 20 20"
     fill="currentColor"
     aria-hidden="true"
@@ -80,18 +78,18 @@ const Pricing = () => {
       <div className="container">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-sm font-semibold tracking-widest uppercase text-sky-400 mb-3">
+          <p className="mb-3 text-sm font-semibold tracking-widest uppercase text-sky-400">
             Preise
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
             Transparent &amp; fair
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto">
+          <p className="max-w-xl mx-auto text-zinc-400">
             Einmaliges Setup, monatliche Betreuung. Keine versteckten Kosten.
           </p>
 
           {/* Toggle */}
-          <div className="mt-8 inline-flex items-center gap-1 rounded-full bg-white/5 p-1 text-sm font-semibold">
+          <div className="inline-flex items-center gap-1 p-1 mt-8 text-sm font-semibold rounded-full bg-white/5">
             <button
               onClick={() => setBilling("monthly")}
               className={`px-4 py-1.5 rounded-full transition-colors duration-200 ${
@@ -116,7 +114,7 @@ const Pricing = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid items-stretch grid-cols-1 gap-6 md:grid-cols-3">
           {tiers.map((tier) => (
             <div
               key={tier.id}
@@ -127,21 +125,29 @@ const Pricing = () => {
               }`}
             >
               {tier.featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sky-400 text-zinc-950 text-xs font-bold px-3 py-1 rounded-full tracking-wide">
+                <span className="absolute px-3 py-1 text-xs font-bold tracking-wide -translate-x-1/2 rounded-full -top-3 left-1/2 bg-sky-400 text-zinc-950">
                   Beliebt
                 </span>
               )}
 
               {/* Name & description */}
               <div className="mb-6">
-                <h3 className="text-lg font-bold text-white mb-1">{tier.name}</h3>
+                <h3 className="mb-1 text-lg font-bold text-white">{tier.name}</h3>
                 <p className="text-sm text-zinc-500">{tier.description}</p>
               </div>
 
               {/* Setup fee */}
-              <p className="text-xs text-zinc-500 mb-1">
-                Setup: <span className="text-zinc-300 font-medium">{tier.setup}</span>
-              </p>
+              <div className="mb-3">
+                <p className="mb-0.5 text-xs text-zinc-500">
+                  Setup Singlepage:{" "}
+                  <span className="font-medium text-zinc-300">{tier.setupOnepager}</span>
+                </p>
+                <p className="text-xs text-zinc-500">
+                  Setup Multipager{" "}
+                  <span className="text-zinc-600">(bis 5 Seiten)</span>:{" "}
+                  <span className="font-medium text-zinc-300">{tier.setupMultipager}</span>
+                </p>
+              </div>
 
               {/* Monthly price */}
               <div className="flex items-end gap-2 mb-1">
@@ -149,13 +155,15 @@ const Pricing = () => {
                   {tier.price[billing]}
                 </span>
               </div>
-              <p className="text-xs text-zinc-500 mb-8">{tier.billingNote[billing]}</p>
+              <p className="mb-8 text-xs text-zinc-500">
+                {billing === "annually" ? "pro Jahr, jährlich abgerechnet" : "pro Monat, monatlich abgerechnet"}
+              </p>
 
               {/* Divider */}
-              <div className="border-t border-white/8 mb-6" />
+              <div className="mb-6 border-t border-white/8" />
 
               {/* Features */}
-              <ul className="space-y-3 flex-1">
+              <ul className="flex-1 space-y-3">
                 {tier.highlights.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
                     <CheckIcon />
@@ -163,11 +171,18 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
+
+              {/* Note */}
+              {tier.note && (
+                <p className="pt-4 mt-5 text-xs leading-relaxed border-t border-white/8 text-zinc-600">
+                  {tier.note}
+                </p>
+              )}
             </div>
           ))}
         </div>
 
-        <p className="text-center text-zinc-600 text-sm mt-10">
+        <p className="mt-10 text-sm text-center text-zinc-600">
           Alle Preise in CHF, exkl. MwSt. · Individuelle Anfragen?{" "}
           <a href="#contact" className="text-sky-400 hover:underline">
             Schreib uns

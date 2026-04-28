@@ -4,7 +4,7 @@ const works = [
     title: "Langenfeld Garage",
     description:
       "Homepage für ein lokales Autohaus — modernes Design, klare Struktur und SEO-Optimierung.",
-    tags: ["Website", "Web Design", "Development"],
+    tags: ["Web Design", "Development"],
     projectLink: "https://projekt-lfg.onrender.com",
   },
   {
@@ -12,16 +12,8 @@ const works = [
     title: "Henrys Farm Homepage",
     description:
       "Single-Page-Application für einen landwirtschaftlichen Betrieb mit attraktiver Bildwelt.",
-    tags: ["SPA", "Web Design", "Development"],
+    tags: [ "Web Design", "Development","SPA"],
     projectLink: "https://projekt-galloway.onrender.com",
-  },
-  {
-    imgSrc: "/assets/img/shop.jpg",
-    title: "Ecommerce Shop",
-    description:
-      "Vollständiger Online-Shop mit Produktverwaltung, Warenkorb und Checkout-Flow.",
-    tags: ["eCommerce", "API", "Fullstack"],
-    projectLink: null,
   },
   {
     imgSrc: "/assets/img/tribute-night.png",
@@ -32,12 +24,28 @@ const works = [
     projectLink: "https://tribute-night.onrender.com/",
   },
   {
+    imgSrc: "/assets/img/",
+    title: "Mietwagen Tool",
+    description:
+      "Vollständiges Mietwagen-Tool mit Datenbank integrierung auf neustem Industriellem Standart.",
+    tags: ["API", "Mailing", "Industrie", "Fullstack", ],
+    projectLink: null,
+  },
+  {
     imgSrc: "/assets/img/autofire_homepage.png",
     title: "Autofire Homepage",
     description:
       "Moderne SPA für einen Automotive-Dienstleister mit animiertem Hero und Servicepages.",
-    tags: ["SPA", "Web Design", "Development"],
+    tags: ["Web Design", "SPA", "Development"],
     projectLink: "https://projekt-auto.onrender.com",
+  },
+    {
+    imgSrc: "/assets/img/",
+    title: "Restaurant Krone",
+    description:
+      "Vollständige Website für ein traditionelles Gasthaus mit Online-Reservierungssystem.",
+    tags: ["Web Design", "Development", "Fullstack"],
+    projectLink: null,
   },
 ];
 
@@ -71,7 +79,7 @@ export default function Work() {
             Ausgewählte Projekte
           </h2>
           <p className="max-w-xl leading-relaxed text-zinc-400">
-            Ein Einblick in unsere Arbeit, von kreativen Websites bis zu
+            Ein Einblick in unsere Arbeit — von kreativen Websites bis zu
             komplexen Full-Stack-Anwendungen.
           </p>
         </div>

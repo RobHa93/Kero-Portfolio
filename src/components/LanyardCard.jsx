@@ -2,8 +2,7 @@ const LanyardCard = ({
   ready,
   name = "Robin & Kevin",
   role = "Full-Stack Developer",
-  photo = "/assets/img/Foto.png",
-  tags = ["Frontend", "Backend"],
+  photo1 = "/assets/img/Foto.png",
   delay = 0,
   stringHeight = "28vh",
 }) => {
@@ -16,7 +15,7 @@ const LanyardCard = ({
     >
       {/* Lanyard string */}
       <div
-        className="w-3 rounded-full bg-gradient-to-b from-transparent via-zinc-500/70 to-zinc-500/90"
+        className="w-3 rounded-full bg-gradient-to-b from-transparent via-zinc-400/70 to-zinc-500/90"
         style={{ height: stringHeight }}
       />
 
@@ -27,33 +26,23 @@ const LanyardCard = ({
       </div>
 
       {/* ID Card */}
-      <div className="w-56 rounded-2xl overflow-hidden bg-white shadow-[0_24px_70px_rgba(0,0,0,0.65)] border border-white/10">
+      <div className="w-66 rounded-2xl overflow-hidden bg-white shadow-[0_24px_70px_rgba(0,0,0,0.65)] border border-white/10">
         {/* Photo */}
-        <div className="overflow-hidden" style={{ height: "180px" }}>
+        <div className="overflow-hidden" style={{ height: "220px" }}>
           <img
-            src={photo}
+            src={photo1}
             alt={name}
-            className="object-cover w-full h-full object-fit grayscale"
+            className="object-cover w-full h-full object-fit"
           />
         </div>
 
         {/* Card info */}
         <div className="px-4 pt-3 pb-4 bg-white">
-          <p className="mb-1 font-mono text-xs tracking-widest uppercase text-zinc-400">
+          <p className="mb-5 font-mono text-xs tracking-widest uppercase text-zinc-400">
             kero.dev
           </p>
           <h3 className="text-base font-bold leading-snug text-zinc-900">{name}</h3>
-          <p className="mb-3 text-xs text-zinc-500">{role}</p>
-          <div className="flex flex-wrap gap-1.5">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs bg-zinc-100 text-zinc-600 px-2.5 py-0.5 rounded-full border border-zinc-200"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          <p className="mb-3 text-s text-zinc-500">{role}</p>
         </div>
       </div>
     </div>
