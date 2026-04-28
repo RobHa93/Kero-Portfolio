@@ -32,14 +32,6 @@ const works = [
     projectLink: "https://tribute-night.onrender.com/",
   },
   {
-    imgSrc: "/assets/img/netflix.jpg",
-    title: "Netflix-Klon",
-    description:
-      "Vollständiger Netflix-Clone mit TMDB API-Integration und Nutzerauthentifizierung.",
-    tags: ["API", "SPA", "Fullstack"],
-    projectLink: null,
-  },
-  {
     imgSrc: "/assets/img/autofire_homepage.png",
     title: "Autofire Homepage",
     description:
@@ -79,7 +71,7 @@ export default function Work() {
             Ausgewählte Projekte
           </h2>
           <p className="max-w-xl leading-relaxed text-zinc-400">
-            Ein Einblick in unsere Arbeit — von kreativen Websites bis zu
+            Ein Einblick in unsere Arbeit, von kreativen Websites bis zu
             komplexen Full-Stack-Anwendungen.
           </p>
         </div>

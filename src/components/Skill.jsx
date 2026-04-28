@@ -1,14 +1,62 @@
-import SkillCard from "./SkillCard.jsx";
+const CDN = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
 
-const skillItem = [
-  { imgSrc: '/assets/img/figma.svg',      label: 'Figma',       desc: 'Design Tool' },
-  { imgSrc: '/assets/img/css3.svg',       label: 'CSS',         desc: 'User Interface' },
-  { imgSrc: '/assets/img/javascript.svg', label: 'JavaScript',  desc: 'Interaction' },
-  { imgSrc: '/assets/img/nodejs.svg',     label: 'NodeJS',      desc: 'Web Server' },
-  { imgSrc: '/assets/img/expressjs.svg',  label: 'ExpressJS',   desc: 'Node Framework' },
-  { imgSrc: '/assets/img/mongodb.svg',    label: 'MongoDB',     desc: 'Database' },
-  { imgSrc: '/assets/img/react.svg',      label: 'React',       desc: 'Framework' },
-  { imgSrc: '/assets/img/tailwindcss.svg',label: 'TailwindCSS', desc: 'User Interface' },
+const skillCategories = [
+  {
+    category: 'Frontend',
+    items: [
+      { imgSrc: `${CDN}/vuejs/vuejs-original.svg`,           label: 'Vue.js' },
+      { imgSrc: `${CDN}/react/react-original.svg`,           label: 'React' },
+      { imgSrc: `${CDN}/tailwindcss/tailwindcss-original.svg`, label: 'Tailwind CSS' },
+      { imgSrc: `${CDN}/vuetify/vuetify-original.svg`,       label: 'Vuetify' },
+      { imgSrc: `${CDN}/bootstrap/bootstrap-original.svg`,   label: 'Bootstrap' },
+    ],
+  },
+  {
+    category: 'Backend',
+    items: [
+      { imgSrc: `${CDN}/nodejs/nodejs-original.svg`,         label: 'Node.js' },
+      { imgSrc: `${CDN}/express/express-original.svg`,       label: 'Express.js' },
+    ],
+  },
+  {
+    category: 'Datenbanken',
+    items: [
+      { imgSrc: `${CDN}/mysql/mysql-original.svg`,           label: 'MySQL' },
+      { imgSrc: `${CDN}/mongodb/mongodb-original.svg`,       label: 'MongoDB' },
+      { imgSrc: `${CDN}/postgresql/postgresql-original.svg`, label: 'PostgreSQL' },
+    ],
+  },
+  {
+    category: 'Sprachen',
+    items: [
+      { imgSrc: `${CDN}/javascript/javascript-original.svg`, label: 'JavaScript' },
+      { imgSrc: `${CDN}/typescript/typescript-original.svg`, label: 'TypeScript' },
+      { imgSrc: `${CDN}/python/python-original.svg`,         label: 'Python' },
+      { imgSrc: `${CDN}/html5/html5-original.svg`,           label: 'HTML' },
+      { imgSrc: `${CDN}/css3/css3-original.svg`,             label: 'CSS' },
+    ],
+  },
+  {
+    category: 'Tools & Workflow',
+    items: [
+      { imgSrc: `${CDN}/git/git-original.svg`,               label: 'Git' },
+      { imgSrc: `${CDN}/gitlab/gitlab-original.svg`,         label: 'GitLab CI/CD' },
+      { imgSrc: `${CDN}/vitejs/vitejs-original.svg`,         label: 'Vite' },
+      { imgSrc: `${CDN}/webpack/webpack-original.svg`,       label: 'Webpack' },
+      { imgSrc: `${CDN}/npm/npm-original-wordmark.svg`,      label: 'npm' },
+      { imgSrc: `${CDN}/yarn/yarn-original.svg`,             label: 'Yarn' },
+      { imgSrc: `${CDN}/figma/figma-original.svg`,           label: 'Figma' },
+      { imgSrc: `${CDN}/postman/postman-original.svg`,       label: 'Postman' },
+      { imgSrc: `${CDN}/jenkins/jenkins-original.svg`,       label: 'Jenkins' },
+    ],
+  },
+  {
+    category: 'Infrastruktur',
+    items: [
+      { imgSrc: `${CDN}/docker/docker-original.svg`,         label: 'Docker' },
+      { imgSrc: `${CDN}/linux/linux-original.svg`,           label: 'Linux' },
+    ],
+  },
 ];
 
 const Skill = () => {
@@ -16,32 +64,57 @@ const Skill = () => {
     <section id="skills" className="section bg-zinc-950">
       <div className="container">
         {/* Section label */}
-        <div className="flex items-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-10">
           <div className="w-8 h-px bg-sky-400" />
           <span className="text-sm font-medium tracking-widest uppercase text-sky-400">
             Tech Stack
           </span>
         </div>
 
-        <div className="mb-12">
-          <h2 className="mb-4 text-4xl font-bold text-white">
-            Tools &amp; Technologien
-          </h2>
-          <p className="max-w-2xl leading-relaxed text-zinc-400">
-            Wir entwickeln mit modernen Frameworks und Tools — von der Idee bis
-            zum fertigen Produkt. Unser Fokus: performante, skalierbare und
-            benutzerfreundliche Webanwendungen.
-          </p>
-        </div>
+        <h2 className="mb-3 text-4xl font-bold text-white">
+          Tools &amp; Technologien
+        </h2>
+        <p className="max-w-xl mb-10 leading-relaxed text-zinc-400">
+          Moderne Technologien, die sich in der Praxis bewährt haben.
+        </p>
 
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {skillItem.map(({ imgSrc, label, desc }, key) => (
-            <SkillCard key={key} imgSrc={imgSrc} label={label} desc={desc} />
+        {/* Category rows */}
+        <div className="flex flex-col divide-y divide-white/5">
+          {skillCategories.map(({ category, items }) => (
+            <div
+              key={category}
+              className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:gap-6"
+            >
+              {/* Category label */}
+              <span className="flex-shrink-0 w-32 text-xs font-semibold tracking-widest uppercase text-zinc-500">
+                {category}
+              </span>
+
+              {/* Items */}
+              <div className="flex flex-wrap gap-2">
+                {items.map(({ imgSrc, label }) => (
+                  <div
+                    key={label}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 border border-white/8 hover:border-sky-400/25 hover:bg-white/8 transition-colors duration-200"
+                  >
+                    <img
+                      src={imgSrc}
+                      alt={label}
+                      width={16}
+                      height={16}
+                      className="flex-shrink-0 object-contain w-4 h-4"
+                      onError={(e) => { e.currentTarget.style.opacity = '0.15'; }}
+                    />
+                    <span className="text-xs text-zinc-300 whitespace-nowrap">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Skill
+export default Skill;

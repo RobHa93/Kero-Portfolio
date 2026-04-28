@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
+import HowWeWork from "./components/HowWeWork.jsx";
 import Skill from "./components/Skill.jsx";
 import Work from "./pages/Work.jsx";
 import Pricing from "./pages/Pricing.jsx";
@@ -26,6 +27,7 @@ function App() {
         <Navbar />
         <Hero loaded={loaded} />
         <About />
+        <HowWeWork />
         <Skill />
         <Work />
         <Pricing />

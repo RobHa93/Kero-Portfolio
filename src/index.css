@@ -61,6 +61,20 @@ body {
   animation: fadeInUp 0.7s ease-out forwards;
 }
 
+/* ── Tech-stack marquee ──────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* ── Legacy helpers ──────────────────────────────── */
 .img-box {
   background-color: rgb(63 63 70);

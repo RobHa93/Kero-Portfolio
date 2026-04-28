@@ -37,12 +37,35 @@ const Hero = ({ loaded }) => {
       <div className="absolute rounded-full pointer-events-none top-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 blur-3xl" />
       <div className="absolute w-64 h-64 rounded-full pointer-events-none bottom-1/3 left-1/4 bg-sky-500/8 blur-3xl" />
 
-      {/* Lanyard Card – right side, swings in on load */}
+      {/* Robin's card — upper, more left */}
       <div
         className="absolute top-0 z-10 hidden lg:block"
-        style={{ right: "10%" }}
+        style={{ right: "20%" }}
       >
-        <LanyardCard ready={loaded} />
+        <LanyardCard
+          ready={loaded}
+          name="Robin"
+          role="Full-Stack Developer"
+          photo="/assets/img/Foto.png"
+          tags={["Frontend", "Vue.js", "React"]}
+          delay={0}
+        />
+      </div>
+
+      {/* Kevin's card — lower, more right */}
+      <div
+        className="absolute top-0 z-10 hidden lg:block"
+        style={{ right: "5%" }}
+      >
+        <LanyardCard
+          stringHeight="46vh"
+          ready={loaded}
+          name="Kevin"
+          role="Full-Stack Developer"
+          photo="/assets/img/Foto.png"
+          tags={["Backend", "Node.js", "Docker"]}
+          delay={0.25}
+        />
       </div>
 
       <div className="container relative z-10 pt-24 pb-16">
@@ -77,9 +100,9 @@ const Hero = ({ loaded }) => {
           className="max-w-xl mb-10 text-lg leading-relaxed animate-fade-in-up text-zinc-400"
           style={{ animationDelay: "0.2s" }}
         >
-          Wir sind Robin &amp; Kevin — Full-Stack Webentwickler aus der Schweiz.
-          Wir bauen smarte, skalierbare Webanwendungen, die echten Mehrwert
-          bieten.
+        Wir sind Robin & Kevin — zwei Full-Stack Webentwickler aus der Schweiz.
+        Wir entwickeln durchdachte Webanwendungen, die nicht nur gut aussehen, sondern Prozesse vereinfachen,
+        skalieren und echten Mehrwert schaffen.
         </p>
 
         {/* CTA buttons */}
@@ -101,22 +124,24 @@ const Hero = ({ loaded }) => {
           </a>
         </div>
 
-        {/* Stats row */}
-        <div
-          className="flex flex-wrap gap-10 pt-12 mt-16 border-t animate-fade-in-up border-white/5"
-          style={{ animationDelay: "0.4s" }}
-        >
-          {[
-            { number: "10+", label: "Projekte abgeschlossen" },
-            { number: "2+", label: "Jahre Erfahrung" },
-            { number: "2", label: "Full-Stack Entwickler" },
-          ].map(({ number, label }) => (
-            <div key={label}>
-              <div className="text-2xl font-bold text-white">{number}</div>
-              <div className="mt-1 text-sm text-zinc-500">{label}</div>
-            </div>
-          ))}
-        </div>
+      </div>
+
+      {/* Scroll indicator — pinned to section bottom */}
+      <div
+        className="absolute z-20 -translate-x-1/2 bottom-8 left-1/2 animate-fade-in-up"
+        style={{ animationDelay: "0.4s" }}
+      >
+        <a href="#about" aria-label="Nach unten scrollen">
+          <svg
+            className="transition-colors duration-200 w-9 h-9 text-zinc-500 animate-bounce hover:text-sky-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </a>
       </div>
     </section>
   );
