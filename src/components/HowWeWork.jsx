@@ -30,7 +30,7 @@ const services = [
 
 const HowWeWork = () => {
   return (
-    <section id="how-we-work" className="section">
+    <section id="how-we-work" className="section bg-gray-50 dark:bg-zinc-950">
       <div className="container">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
@@ -43,10 +43,10 @@ const HowWeWork = () => {
         <div className="grid items-start gap-12 md:grid-cols-2">
           {/* Left — heading & principles */}
           <div>
-            <h2 className="mb-4 text-4xl font-bold leading-tight text-white">
+            <h2 className="mb-4 text-4xl font-bold leading-tight text-zinc-900 dark:text-white">
               Wie wir arbeiten
             </h2>
-            <p className="mb-8 leading-relaxed text-zinc-400">
+            <p className="mb-8 leading-relaxed text-zinc-600 dark:text-zinc-400">
               Wir begleiten Projekte ganzheitlich, von der Idee bis zur
               Umsetzung und darüber hinaus.
             </p>
@@ -58,7 +58,7 @@ const HowWeWork = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
-                  <span className="text-sm leading-relaxed text-zinc-300">{item}</span>
+                  <span className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">{item}</span>
                 </li>
               ))}
             </ul>
@@ -70,18 +70,18 @@ const HowWeWork = () => {
 
           {/* Right — compact services */}
           <div>
-            <h3 className="mb-6 text-lg font-semibold text-white">Unsere Leistungen</h3>
+            <h3 className="mb-6 text-lg font-semibold text-zinc-900 dark:text-white">Unsere Leistungen</h3>
             <div className="flex flex-col gap-2">
               {services.map(({ icon, title, desc }) => (
                 <div
                   key={title}
-                  className="flex items-center gap-3 px-4 py-3 transition-all duration-200 border rounded-lg border-white/8 bg-white/3 hover:border-sky-400/25 hover:bg-white/6"
+                  className="flex items-center gap-3 px-4 py-3 transition-all duration-200 border rounded-lg border-zinc-200 bg-zinc-50 hover:border-sky-400/25 hover:bg-zinc-100 dark:border-white/8 dark:bg-white/3 dark:hover:border-sky-400/25 dark:hover:bg-white/6"
                 >
                   <span className="flex items-center justify-center flex-shrink-0 rounded-md w-7 h-7 bg-sky-400/10 text-sky-400">
                     {icon}
                   </span>
                   <div className="min-w-0">
-                    <span className="block text-sm font-medium text-white">{title}</span>
+                    <span className="block text-sm font-medium text-zinc-900 dark:text-white">{title}</span>
                     <span className="block text-xs truncate text-zinc-500">{desc}</span>
                   </div>
                 </div>

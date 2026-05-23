@@ -74,28 +74,28 @@ const Pricing = () => {
   const [billing, setBilling] = useState("monthly");
 
   return (
-    <section id="pricing" className="section bg-zinc-950">
+    <section id="pricing" className="section bg-gray-50 dark:bg-zinc-950">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-14">
           <p className="mb-3 text-sm font-semibold tracking-widest uppercase text-sky-400">
             Preise
           </p>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-5xl">
             Transparent &amp; fair
           </h2>
-          <p className="max-w-xl mx-auto text-zinc-400">
+          <p className="max-w-xl mx-auto text-zinc-600 dark:text-zinc-400">
             Einmaliges Setup, monatliche Betreuung. Keine versteckten Kosten.
           </p>
 
           {/* Toggle */}
-          <div className="inline-flex items-center gap-1 p-1 mt-8 text-sm font-semibold rounded-full bg-white/5">
+          <div className="inline-flex items-center gap-1 p-1 mt-8 text-sm font-semibold rounded-full bg-zinc-200 dark:bg-white/5">
             <button
               onClick={() => setBilling("monthly")}
               className={`px-4 py-1.5 rounded-full transition-colors duration-200 ${
                 billing === "monthly"
                   ? "bg-sky-400 text-zinc-950"
-                  : "text-zinc-400 hover:text-white"
+                  : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
               }`}
             >
               Monatlich
@@ -105,7 +105,7 @@ const Pricing = () => {
               className={`px-4 py-1.5 rounded-full transition-colors duration-200 ${
                 billing === "annually"
                   ? "bg-sky-400 text-zinc-950"
-                  : "text-zinc-400 hover:text-white"
+                  : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
               }`}
             >
               Jährlich
@@ -120,8 +120,8 @@ const Pricing = () => {
               key={tier.id}
               className={`relative flex flex-col rounded-2xl p-8 border transition-all duration-200 ${
                 tier.featured
-                  ? "bg-zinc-900 border-sky-400/50 shadow-[0_0_40px_rgba(56,189,248,0.08)]"
-                  : "bg-zinc-900/50 border-white/8"
+                  ? "bg-white border-sky-400/50 shadow-[0_0_40px_rgba(56,189,248,0.08)] dark:bg-zinc-900"
+                  : "bg-white border-zinc-200 dark:bg-zinc-900/50 dark:border-white/8"
               }`}
             >
               {tier.featured && (
@@ -132,7 +132,7 @@ const Pricing = () => {
 
               {/* Name & description */}
               <div className="mb-6">
-                <h3 className="mb-1 text-lg font-bold text-white">{tier.name}</h3>
+                <h3 className="mb-1 text-lg font-bold text-zinc-900 dark:text-white">{tier.name}</h3>
                 <p className="text-sm text-zinc-500">{tier.description}</p>
               </div>
 
@@ -140,18 +140,18 @@ const Pricing = () => {
               <div className="mb-3">
                 <p className="mb-0.5 text-xs text-zinc-500">
                   Setup Singlepage:{" "}
-                  <span className="font-medium text-zinc-300">{tier.setupOnepager}</span>
+                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{tier.setupOnepager}</span>
                 </p>
                 <p className="text-xs text-zinc-500">
                   Setup Multipager{" "}
                   <span className="text-zinc-600">(bis 5 Seiten)</span>:{" "}
-                  <span className="font-medium text-zinc-300">{tier.setupMultipager}</span>
+                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{tier.setupMultipager}</span>
                 </p>
               </div>
 
               {/* Monthly price */}
               <div className="flex items-end gap-2 mb-1">
-                <span className="text-4xl font-bold text-white">
+                <span className="text-4xl font-bold text-zinc-900 dark:text-white">
                   {tier.price[billing]}
                 </span>
               </div>
@@ -160,12 +160,12 @@ const Pricing = () => {
               </p>
 
               {/* Divider */}
-              <div className="mb-6 border-t border-white/8" />
+              <div className="mb-6 border-t border-zinc-200 dark:border-white/8" />
 
               {/* Features */}
               <ul className="flex-1 space-y-3">
                 {tier.highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-700 dark:text-zinc-300">
                     <CheckIcon />
                     {item}
                   </li>
@@ -174,7 +174,7 @@ const Pricing = () => {
 
               {/* Note */}
               {tier.note && (
-                <p className="pt-4 mt-5 text-xs leading-relaxed border-t border-white/8 text-zinc-600">
+                <p className="pt-4 mt-5 text-xs leading-relaxed border-t border-zinc-200 dark:border-white/8 text-zinc-500 dark:text-zinc-600">
                   {tier.note}
                 </p>
               )}

@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <section id="contact" className="section bg-zinc-950">
+    <section id="contact" className="section bg-white dark:bg-zinc-950">
       <div className="container">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
@@ -13,10 +13,10 @@ const Contact = () => {
         <div className="grid items-start gap-12 md:grid-cols-2">
           {/* Left — heading & socials */}
           <div>
-            <h2 className="mb-4 text-4xl font-bold leading-tight text-white">
-              Starten WIR gemeinsam <br /> ihr nächstes Projekt.
+            <h2 className="mb-4 text-4xl font-bold leading-tight text-zinc-900 dark:text-white">
+              Starten wir gemeinsam <br /> ihr nächstes Projekt.
             </h2>
-            <p className="mb-8 leading-relaxed text-zinc-400">
+            <p className="mb-8 leading-relaxed text-zinc-600 dark:text-zinc-400">
               Sie haben ein Projekt, eine Idee oder möchten einfach in Kontakt
               treten? Schreiben Sie uns — wir freuen uns auf Ihre Nachricht.
             </p>
@@ -34,14 +34,14 @@ const Contact = () => {
                 name="name"
                 placeholder="Ihr Name"
                 required
-                className="px-4 py-3 text-sm text-white transition-all duration-200 border bg-white/5 border-white/10 placeholder:text-zinc-600 rounded-xl focus:outline-none focus:border-sky-400/50"
+                className="px-4 py-3 text-sm text-zinc-900 transition-all duration-200 border bg-zinc-50 border-zinc-200 placeholder:text-zinc-400 rounded-xl focus:outline-none focus:border-sky-400/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-zinc-600"
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Ihre E-Mail"
                 required
-                className="px-4 py-3 text-sm text-white transition-all duration-200 border bg-white/5 border-white/10 placeholder:text-zinc-600 rounded-xl focus:outline-none focus:border-sky-400/50"
+                className="px-4 py-3 text-sm text-zinc-900 transition-all duration-200 border bg-zinc-50 border-zinc-200 placeholder:text-zinc-400 rounded-xl focus:outline-none focus:border-sky-400/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-zinc-600"
               />
             </div>
             <textarea
@@ -49,7 +49,7 @@ const Contact = () => {
               placeholder="Ihre Nachricht..."
               required
               rows={6}
-              className="px-4 py-3 text-sm text-white transition-all duration-200 border resize-none bg-white/5 border-white/10 placeholder:text-zinc-600 rounded-xl focus:outline-none focus:border-sky-400/50"
+              className="px-4 py-3 text-sm text-zinc-900 transition-all duration-200 border resize-none bg-zinc-50 border-zinc-200 placeholder:text-zinc-400 rounded-xl focus:outline-none focus:border-sky-400/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-zinc-600"
             />
             <button
               type="submit"

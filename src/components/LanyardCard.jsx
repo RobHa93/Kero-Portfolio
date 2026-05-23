@@ -32,7 +32,7 @@ const LanyardCard = ({
           <img
             src={photo1}
             alt={name}
-            className="object-cover w-full h-full object-fit"
+            className="object-cover w-full h-full"
           />
         </div>
 

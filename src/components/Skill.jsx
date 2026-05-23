@@ -53,15 +53,13 @@ const skillCategories = [
   {
     category: 'Infrastruktur',
     items: [
-      { imgSrc: `${CDN}/docker/docker-original.svg`,         label: 'Docker' },
-      { imgSrc: `${CDN}/linux/linux-original.svg`,           label: 'Linux' },
-    ],
+      { imgSrc: `${CDN}/docker/docker-original.svg`,         label: 'Docker' }    ],
   },
 ];
 
 const Skill = () => {
   return (
-    <section id="skills" className="section bg-zinc-950">
+      <section id="skills" className="section bg-white dark:bg-zinc-950">
       <div className="container">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-10">
@@ -71,10 +69,10 @@ const Skill = () => {
           </span>
         </div>
 
-        <h2 className="mb-3 text-4xl font-bold text-white">
+        <h2 className="mb-3 text-4xl font-bold text-zinc-900 dark:text-white">
           Tools &amp; Technologien
         </h2>
-        <p className="max-w-xl mb-10 leading-relaxed text-zinc-400">
+        <p className="max-w-xl mb-10 leading-relaxed text-zinc-600 dark:text-zinc-400">
           Moderne Technologien, die sich in der Praxis bewährt haben.
         </p>
 
@@ -95,7 +93,7 @@ const Skill = () => {
                 {items.map(({ imgSrc, label }) => (
                   <div
                     key={label}
-                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 border border-white/8 hover:border-sky-400/25 hover:bg-white/8 transition-colors duration-200"
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-zinc-100 border border-zinc-200 hover:border-sky-400/25 hover:bg-zinc-200/50 dark:bg-white/5 dark:border-white/8 dark:hover:bg-white/8 transition-colors duration-200"
                   >
                     <img
                       src={imgSrc}
@@ -105,7 +103,7 @@ const Skill = () => {
                       className="flex-shrink-0 object-contain w-4 h-4"
                       onError={(e) => { e.currentTarget.style.opacity = '0.15'; }}
                     />
-                    <span className="text-xs text-zinc-300 whitespace-nowrap">{label}</span>
+                    <span className="text-xs text-zinc-700 dark:text-zinc-300 whitespace-nowrap">{label}</span>
                   </div>
                 ))}
               </div>

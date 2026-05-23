@@ -1,13 +1,20 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   scroll-behavior: smooth;
+  background-color: #ffffff; /* light default */
+}
+
+html.dark {
+  background-color: #09090b; /* zinc-950 – verhindert weißen Flash */
 }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: #09090b; /* zinc-950 – verhindert weißen Flash */
 }
 
 /* ── Layout utilities ───────────────────────────── */
@@ -39,9 +46,15 @@ body {
 /* ── Subtle dot/grid background for hero ────────── */
 .grid-bg {
   background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.dark .grid-bg {
+  background-image:
     linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
 }
 
 /* ── Entrance animations ─────────────────────────── */

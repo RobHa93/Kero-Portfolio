@@ -14,13 +14,12 @@ const Hero = ({ loaded }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // fade out
       setVisible(false);
-      setTimeout(() => {
+      const t = setTimeout(() => {
         setIndex((prev) => (prev + 1) % endings.length);
-        // fade in
         setVisible(true);
       }, 400);
+      return () => clearTimeout(t);
     }, 2800);
     return () => clearInterval(interval);
   }, []);
@@ -28,7 +27,7 @@ const Hero = ({ loaded }) => {
   return (
     <section
       id="home"
-      className="relative flex items-center min-h-screen overflow-hidden bg-zinc-950"
+      className="relative flex items-center min-h-screen overflow-hidden bg-white dark:bg-zinc-950"
     >
       {/* Grid overlay */}
       <div className="absolute inset-0 pointer-events-none grid-bg" />
@@ -37,7 +36,7 @@ const Hero = ({ loaded }) => {
       <div className="absolute rounded-full pointer-events-none top-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 blur-3xl" />
       <div className="absolute w-64 h-64 rounded-full pointer-events-none bottom-1/3 left-1/4 bg-sky-500/8 blur-3xl" />
 
-      {/* Robin's card — upper, more left */}
+      {/* Kevin's card — upper, more left */}
       <div
         className="absolute top-0 z-10 hidden lg:block"
         style={{ right: "20%" }}
@@ -47,12 +46,11 @@ const Hero = ({ loaded }) => {
           name="Kevin"
           role="Full-Stack Developer"
           photo1="/assets/img/img_kevin.png"
-          tags={["Frontend", "Vue.js", "React"]}
           delay={0}
         />
       </div>
 
-      {/* Kevin's card — lower, more right */}
+      {/* Robin's card — lower, more right */}
       <div
         className="absolute top-0 z-10 hidden lg:block"
         style={{ right: "5%" }}
@@ -62,8 +60,7 @@ const Hero = ({ loaded }) => {
           ready={loaded}
           name="Robin"
           role="Full-Stack Developer"
-          photo1="/assets/img/img_robin.jpeg"
-          tags={["Backend", "Node.js", "Docker"]}
+          photo1="/assets/img/img_robin.png"
           delay={0.25}
         />
       </div>
@@ -75,20 +72,20 @@ const Hero = ({ loaded }) => {
             <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-emerald-400" />
             <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-400" />
           </span>
-          <span className="text-sm tracking-wide text-zinc-400">
+          <span className="text-sm tracking-wide text-zinc-600 dark:text-zinc-400">
             Verfügbar für neue Projekte
           </span>
         </div>
 
         {/* Headline */}
         <h1
-          className="animate-fade-in-up text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-6"
+          className="animate-fade-in-up text-5xl md:text-7xl lg:text-8xl font-bold text-zinc-900 dark:text-white leading-[1.05] tracking-tight mb-6"
           style={{ animationDelay: "0.1s" }}
         >
           Digitale Projekte,
           <br />
           <span
-            className="transition-opacity text-sky-400 duration-400"
+            className="transition-opacity text-sky-400 duration-300"
             style={{ opacity: visible ? 1 : 0 }}
           >
             {endings[index]}
@@ -97,10 +94,10 @@ const Hero = ({ loaded }) => {
 
         {/* Sub-headline */}
         <p
-          className="max-w-xl mb-10 text-lg leading-relaxed animate-fade-in-up text-zinc-400"
+          className="max-w-xl mb-10 text-lg leading-relaxed animate-fade-in-up text-zinc-600 dark:text-zinc-400"
           style={{ animationDelay: "0.2s" }}
         >
-        Wir sind Kevin & Robin, zwei Full-Stack Webentwickler aus der Schweiz.
+        Wir sind Kevin & Robin, zwei Full-Stack Webentwickler aus dem Aargau.
         Wir entwickeln durchdachte Webanwendungen, die nicht nur gut aussehen, sondern Prozesse vereinfachen,
         skalieren und echten Mehrwert schaffen.
         </p>
@@ -118,7 +115,7 @@ const Hero = ({ loaded }) => {
           </a>
           <a
             href="#contact"
-            className="px-6 py-3 font-medium text-white transition-all duration-200 border rounded-full border-white/15 hover:bg-white/5 hover:border-white/30"
+            className="px-6 py-3 font-medium transition-all duration-200 border rounded-full text-zinc-900 border-zinc-300 hover:bg-zinc-100 hover:border-zinc-400 dark:text-white dark:border-white/15 dark:hover:bg-white/5 dark:hover:border-white/30"
           >
             Kontakt aufnehmen
           </a>
@@ -133,7 +130,7 @@ const Hero = ({ loaded }) => {
       >
         <a href="#about" aria-label="Nach unten scrollen">
           <svg
-            className="transition-colors duration-200 w-9 h-9 text-zinc-500 animate-bounce hover:text-sky-400"
+            className="transition-colors duration-200 w-9 h-9 text-zinc-500 dark:text-zinc-500 animate-bounce hover:text-sky-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

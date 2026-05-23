@@ -24,7 +24,7 @@ const works = [
     projectLink: "https://tribute-night.onrender.com/",
   },
   {
-    imgSrc: "/assets/img/",
+    imgSrc: "/assets/img/mietwage-tool.png",
     title: "Mietwagen Tool",
     description:
       "Vollständiges Mietwagen-Tool mit Datenbank integrierung auf neustem Industriellem Standart.",
@@ -40,10 +40,10 @@ const works = [
     projectLink: "https://projekt-auto.onrender.com",
   },
     {
-    imgSrc: "/assets/img/",
-    title: "Restaurant Krone",
+    imgSrc: "/assets/img/trippin.png",
+    title: "Trippin' Reise Planer",
     description:
-      "Vollständige Website für ein traditionelles Gasthaus mit Online-Reservierungssystem.",
+      "Reiseplaner für individuelle und gruppenbasierte Reisen- Vorschläge für Aktivitäten und Restaurants/Bars/Pubs.",
     tags: ["Web Design", "Development", "Fullstack"],
     projectLink: null,
   },
@@ -53,10 +53,12 @@ const tagStyles = {
   Website:     "bg-sky-400/10 text-sky-400 border-sky-400/20",
   SPA:         "bg-purple-400/10 text-purple-400 border-purple-400/20",
   "Web Design":"bg-sky-400/10 text-sky-400 border-sky-400/20",
-  Development: "bg-zinc-600/30 text-zinc-400 border-zinc-600/40",
+  Development: "bg-zinc-200 text-zinc-600 border-zinc-300 dark:bg-zinc-600/30 dark:text-zinc-400 dark:border-zinc-600/40",
   eCommerce:   "bg-orange-400/10 text-orange-400 border-orange-400/20",
   API:         "bg-blue-400/10 text-blue-400 border-blue-400/20",
   Fullstack:   "bg-red-400/10 text-red-400 border-red-400/20",
+  Industrie:   "bg-amber-400/10 text-amber-500 border-amber-400/20",
+  Mailing:     "bg-green-400/10 text-green-500 border-green-400/20",
 };
 
 const tagClass = (tag) =>
@@ -64,7 +66,7 @@ const tagClass = (tag) =>
 
 export default function Work() {
   return (
-    <section id="work" className="section bg-zinc-950">
+    <section id="work" className="section bg-white dark:bg-zinc-950">
       <div className="container">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
@@ -75,10 +77,10 @@ export default function Work() {
         </div>
 
         <div className="mb-12">
-          <h2 className="mb-4 text-4xl font-bold text-white">
+          <h2 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-white">
             Ausgewählte Projekte
           </h2>
-          <p className="max-w-xl leading-relaxed text-zinc-400">
+          <p className="max-w-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
             Ein Einblick in unsere Arbeit — von kreativen Websites bis zu
             komplexen Full-Stack-Anwendungen.
           </p>
@@ -88,7 +90,7 @@ export default function Work() {
           {works.map((project, idx) => (
             <div
               key={idx}
-              className="flex flex-col overflow-hidden transition-all duration-300 border group bg-white/3 border-white/8 rounded-2xl hover:border-sky-400/25 hover:bg-white/5"
+              className="flex flex-col overflow-hidden transition-all duration-300 border group bg-gray-50 border-zinc-200 rounded-2xl hover:border-sky-400/25 hover:bg-white dark:bg-white/3 dark:border-white/8 dark:hover:border-sky-400/25 dark:hover:bg-white/5"
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden shrink-0">
@@ -97,12 +99,12 @@ export default function Work() {
                   alt={project.title}
                   className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-zinc-950/60 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-zinc-900/50 to-transparent dark:from-zinc-950/60" />
               </div>
 
               {/* Content */}
               <div className="flex flex-col flex-1 p-5">
-                <h3 className="mb-2 text-lg font-semibold text-white">
+                <h3 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-white">
                   {project.title}
                 </h3>
                 <p className="flex-1 mb-4 text-sm leading-relaxed text-zinc-500">
@@ -141,7 +143,7 @@ export default function Work() {
                     </svg>
                   </a>
                 ) : (
-                  <span className="text-sm text-zinc-600">Coming soon</span>
+                  <span className="text-sm text-zinc-400 dark:text-zinc-600">Coming soon</span>
                 )}
               </div>
             </div>
