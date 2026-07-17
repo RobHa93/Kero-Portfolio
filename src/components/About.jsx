@@ -11,31 +11,40 @@ const About = () => {
         </div>
 
         <div className="grid items-start gap-12 md:grid-cols-1">
-          {/* Left — text & stats */}
+          {/* Left - text & stats */}
           <div>
             <h2 className="mb-6 text-4xl font-bold leading-tight text-zinc-900 dark:text-white">
               Wer steckt hinter<br />KeRo WebDev?
             </h2>
             <p className="mb-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Hi, wir sind Kevin und Robin, die Köpfe hinter KeRo WebDev.
-              Als Full-Stack Webentwickler entwickeln wir moderne Weblösungen von Grund auf: von der ersten Idee bis zum produktiven Einsatz.
+              Hi, wir sind Kevin und Robin - zwei Brüder, die Webentwicklung
+              nicht nur als Beruf, sondern als gemeinsame Leidenschaft leben.
+              KeRo WebDev ist unser Nebenprojekt: mit vollem Einsatz, aber
+              ohne Agentur-Overhead.
               <br />
               <br />
-              Unser Fokus liegt auf der Kombination aus intuitivem Frontend und stabiler, skalierbarer Backend-Architektur. Dabei arbeiten wir sowohl an klassischen Webprojekten wie Plattformen und Online-Shops als auch an individuellen Industrie- und Softwarelösungen.
+              Am liebsten arbeiten wir mit lokalen KMUs, Landwirtschaftsbetrieben
+              und Vereinen zusammen - mit Betrieben, die eine Website wollen,
+              die einfach funktioniert. Zu einem fairen Preis, ohne
+              Fachchinesisch und ohne versteckte Kosten.
               <br />
-              <br />              
-              Durch unsere Erfahrung in realen Kundenprojekten, darunter auch sehr komplexe Anwendungen, wissen wir, worauf es ankommt:
+              <br />
+              Unser Fokus liegt auf der Kombination aus intuitivem Frontend und stabiler, skalierbarer Backend-Architektur. Dabei arbeiten wir sowohl an klassischen Webprojekten wie Plattformen und SPAs als auch an individuellen Software-Lösungen für Betriebe mit speziellen Anforderungen.
+              <br />
+              <br />
+              Durch unsere Erfahrung in echten Kundenprojekten wissen wir, worauf es ankommt:
               Performance, Wartbarkeit und ein sauberes Nutzererlebnis.
               <br />
               <br />
               Was uns ausmacht? <br />
-              Wir denken nicht nur in Features, sondern in Lösungen.
+              Du sprichst direkt mit uns - den Leuten, die deine Website
+              tatsächlich bauen. Keine Warteschlaufen, keine Zwischenhändler.
             </p>
 
             {/* Stats */}
             <div className="flex gap-8">
               {[
-                { number: "10+", label: "Projekte abgeschlossen" },
+                { number: "4+", label: "Projekte abgeschlossen" },
                 { number: "3+", label: "Jahre Erfahrung" },
               ].map(({ number, label }) => (
                 <div key={label} className="pl-4 border-l-2 border-sky-400">

@@ -4,7 +4,7 @@ import LanyardCard from "./LanyardCard.jsx";
 
 const endings = [
   "die begeistern.",
-  "die überzeugen.",
+  "die wirken.",
   "die bleiben."
 ];
 

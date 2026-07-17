@@ -4,8 +4,8 @@ const works = [
     title: "Langenfeld Garage",
     description:
       "Homepage für ein lokales Autohaus — modernes Design, klare Struktur und SEO-Optimierung.",
-    tags: ["Web Design", "Development"],
-    projectLink: "https://projekt-lfg.onrender.com",
+    tags: ["Web Design", "Mailing", "Development"],
+    projectLink: "https://Keroweb-test.ch",
   },
   {
     imgSrc: "/assets/img/galloway_homepage.png",
@@ -97,6 +97,8 @@ export default function Work() {
                 <img
                   src={project.imgSrc}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-zinc-900/50 to-transparent dark:from-zinc-950/60" />

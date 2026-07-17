@@ -3,8 +3,8 @@ import { useState } from "react";
 const tiers = [
   {
     id: "hosting",
-    name: "Kero-Web: Hosting",
-    description: "Deine Website läuft — zuverlässig, sicher und immer erreichbar.",
+    name: "Hosting",
+    description: "Deine Website läuft - zuverlässig, sicher und immer erreichbar.",
     setupOnepager: "ab CHF 299.-",
     setupMultipager: "ab CHF 999.-",
     price: { monthly: "CHF 49.-", annually: "CHF 588.-" },
@@ -13,14 +13,14 @@ const tiers = [
       "Hosting & Betrieb",
       "SSL-Zertifikat",
       "Automatische Backups",
-      "Uptime-Monitoring",
+      "Wir behalten deine Seite im Blick",
       "Mobile optimiert",
     ],
     note: null,
   },
   {
     id: "business",
-    name: "Kero-Web: Business",
+    name: "Business",
     description: "Laufende Betreuung für deinen professionellen Webauftritt.",
     setupOnepager: "ab CHF 299.-",
     setupMultipager: "ab CHF 999.-",
@@ -38,18 +38,18 @@ const tiers = [
   },
   {
     id: "pro",
-    name: "Kero-Web: Pro",
-    description: "Maximale Betreuung — für anspruchsvolle Projekte mit hohem Bedarf.",
-    setupOnepager: "ab CHF 799.-",
-    setupMultipager: "ab CHF 1'499.-",
+    name: "Pro",
+    description: "Ideal für grössere Multi-Pager- und SPA-Projekte mit mehr Betreuungsbedarf.",
+    setupOnepager: "ab CHF 299.-",
+    setupMultipager: "ab CHF 999.-",
     price: { monthly: "CHF 149.-", annually: "CHF 1'788.-" },
     featured: false,
     highlights: [
       "Alles aus Business",
       "Bis zu 5 kleine Änderungen pro Monat",
-      "Priorisierter Support",
-      "Monitoring & Alerting",
-      "Regelmässige Performance-Reports",
+      "Schnellerer Support",
+      "Laufende Überwachung deiner Seite",
+      "Regelmässige Status-Updates von uns",
     ],
     note: "Grössere Änderungen werden nach Aufwand separat offeriert.",
   },
@@ -86,6 +86,9 @@ const Pricing = () => {
           </h2>
           <p className="max-w-xl mx-auto text-zinc-600 dark:text-zinc-400">
             Einmaliges Setup, monatliche Betreuung. Keine versteckten Kosten.
+          </p>
+          <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-500">
+            Monatlich kündbar — keine Mindestlaufzeit.
           </p>
 
           {/* Toggle */}
@@ -183,7 +186,7 @@ const Pricing = () => {
         </div>
 
         <p className="mt-10 text-sm text-center text-zinc-600">
-          Alle Preise in CHF, exkl. MwSt. · Individuelle Anfragen?{" "}
+          Alle Preise in CHF. · Individuelle Anfragen?{" "}
           <a href="#contact" className="text-sky-400 hover:underline">
             Schreib uns
           </a>

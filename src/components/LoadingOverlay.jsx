@@ -69,7 +69,7 @@ export default function LoadingOverlay({ onDone }) {
 
   if (!visible || !coverVisible) return null;
 
-  const textCls = "text-2xl md:text-2xl font-bold tracking-tight select-none";
+  const textCls = "text-base sm:text-2xl font-bold tracking-tight select-none";
 
   return (
     <div
@@ -79,14 +79,14 @@ export default function LoadingOverlay({ onDone }) {
       {phase < 3 ? (
         /* ── Plain phrase ──────────────────────────────── */
         <p
-          className={`${textCls} text-white flex items-center justify-between gap-10`}
+          className={`${textCls} text-white max-w-[90vw] px-4 text-center`}
           style={{ opacity: textOpacity, transition: `opacity ${FADE_MS}ms ease-in-out` }}
         >
           {PHRASES[phase].split("|").map((part, i, arr) => (
-            <span key={i} className="flex items-center">
-              <span className="px-2">{part.trim()}</span>
+            <span key={i} className="whitespace-nowrap">
+              <span className="px-1 sm:px-2">{part.trim()}</span>
               {i < arr.length - 1 && (
-                <span className="gap-10 px-2 text-2xl font-bold text-sky-400 md:text-2xl">|</span>
+                <span className="px-1 sm:px-2 text-sky-400">|</span>
               )}
             </span>
           ))}

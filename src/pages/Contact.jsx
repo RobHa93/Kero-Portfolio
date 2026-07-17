@@ -14,11 +14,11 @@ const Contact = () => {
           {/* Left — heading & socials */}
           <div>
             <h2 className="mb-4 text-4xl font-bold leading-tight text-zinc-900 dark:text-white">
-              Starten wir gemeinsam <br /> ihr nächstes Projekt.
+              Starten wir gemeinsam <br /> dein nächstes Projekt.
             </h2>
             <p className="mb-8 leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Sie haben ein Projekt, eine Idee oder möchten einfach in Kontakt
-              treten? Schreiben Sie uns — wir freuen uns auf Ihre Nachricht.
+              Du hast ein Projekt, eine Idee oder möchtest einfach in Kontakt
+              treten? Schreib uns — wir freuen uns auf deine Nachricht.
             </p>
           </div>
 
@@ -32,21 +32,21 @@ const Contact = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Ihr Name"
+                placeholder="Dein Name"
                 required
                 className="px-4 py-3 text-sm text-zinc-900 transition-all duration-200 border bg-zinc-50 border-zinc-200 placeholder:text-zinc-400 rounded-xl focus:outline-none focus:border-sky-400/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-zinc-600"
               />
               <input
                 type="email"
                 name="email"
-                placeholder="Ihre E-Mail"
+                placeholder="Deine E-Mail"
                 required
                 className="px-4 py-3 text-sm text-zinc-900 transition-all duration-200 border bg-zinc-50 border-zinc-200 placeholder:text-zinc-400 rounded-xl focus:outline-none focus:border-sky-400/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-zinc-600"
               />
             </div>
             <textarea
               name="message"
-              placeholder="Ihre Nachricht..."
+              placeholder="Deine Nachricht..."
               required
               rows={6}
               className="px-4 py-3 text-sm text-zinc-900 transition-all duration-200 border resize-none bg-zinc-50 border-zinc-200 placeholder:text-zinc-400 rounded-xl focus:outline-none focus:border-sky-400/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-zinc-600"

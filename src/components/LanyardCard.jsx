@@ -28,11 +28,11 @@ const LanyardCard = ({
       {/* ID Card */}
       <div className="w-66 rounded-2xl overflow-hidden bg-white shadow-[0_24px_70px_rgba(0,0,0,0.65)] border border-white/10">
         {/* Photo */}
-        <div className="overflow-hidden" style={{ height: "220px" }}>
+        <div className="overflow-hidden aspect-4/5">
           <img
             src={photo1}
             alt={name}
-            className="object-cover w-full h-full"
+            className="object-cover object-top w-full h-full"
           />
         </div>
 
