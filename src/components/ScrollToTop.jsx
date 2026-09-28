@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 const ScrollToTop = () => {
@@ -6,19 +5,21 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const toggleVisibility = () => setIsVisible(window.scrollY > 300);
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
   return (
     <button
-      className={`fixed bottom-8 right-8 bg-sky-400 text-zinc-950 p-3 rounded-full shadow-lg hover:bg-emerald-300 transition-all duration-300 z-50 ${
+      type="button"
+      className={`fixed bottom-5 right-4 sm:bottom-8 sm:right-8 bg-sky-400 text-zinc-950 p-3 rounded-full shadow-lg hover:bg-emerald-300 transition-all duration-300 z-50 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Nach oben scrollen"
+      tabIndex={isVisible ? 0 : -1}
     >
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
       </svg>
     </button>

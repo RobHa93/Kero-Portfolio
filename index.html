@@ -1,8 +1,19 @@
 <!doctype html>
-<html lang="de-CH">
+<html lang="de-CH" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <!-- Theme vor dem ersten Rendern setzen (verhindert Weissblitz) -->
+    <script>
+      try {
+        const saved = localStorage.getItem("theme");
+        const dark = saved ? saved === "dark" : !window.matchMedia("(prefers-color-scheme: light)").matches;
+        document.documentElement.classList.toggle("dark", dark);
+      } catch {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
 
     <title>KeRo WebDev – Full-Stack Webentwicklung aus dem Aargau</title>
     <meta name="description" content="Kevin & Robin entwickeln durchdachte Webanwendungen aus dem Aargau, die nicht nur gut aussehen, sondern Prozesse vereinfachen, skalieren und echten Mehrwert schaffen." />
@@ -15,6 +26,7 @@
     <meta property="og:description" content="Kevin & Robin entwickeln durchdachte Webanwendungen aus dem Aargau, die nicht nur gut aussehen, sondern Prozesse vereinfachen, skalieren und echten Mehrwert schaffen." />
     <meta property="og:url" content="https://kero-web.ch/" />
     <meta property="og:image" content="https://kero-web.ch/assets/img/Wallpaper_webdev.jpg" />
+    <meta property="og:image:alt" content="KeRo WebDev – Full-Stack Webentwicklung" />
     <meta property="og:locale" content="de_CH" />
 
     <!-- Twitter -->
@@ -26,13 +38,8 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Tech-Stack-Icons (Skill.jsx) -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-
-    <!-- Google Material Symbols -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!-- Devicons -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <!--
 
 

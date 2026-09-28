@@ -1,4 +1,7 @@
-const CDN = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
+import SectionLabel from "./SectionLabel.jsx";
+
+// Version gepinnt, damit sich Icon-Pfade nicht unerwartet ändern.
+const CDN = 'https://cdn.jsdelivr.net/npm/devicon@2.17.0/icons';
 
 const skillCategories = [
   {
@@ -15,7 +18,9 @@ const skillCategories = [
     category: 'Backend',
     items: [
       { imgSrc: `${CDN}/nodejs/nodejs-original.svg`,         label: 'Node.js' },
-      { imgSrc: `${CDN}/express/express-original.svg`,       label: 'Express.js' },
+      { imgSrc: `${CDN}/express/express-original.svg`,       label: 'Express.js', invertOnDark: true },
+      { imgSrc: `${CDN}/go/go-original-wordmark.svg`,        label: 'Go' }
+
     ],
   },
   {
@@ -32,6 +37,7 @@ const skillCategories = [
       { imgSrc: `${CDN}/javascript/javascript-original.svg`, label: 'JavaScript' },
       { imgSrc: `${CDN}/typescript/typescript-original.svg`, label: 'TypeScript' },
       { imgSrc: `${CDN}/python/python-original.svg`,         label: 'Python' },
+      { imgSrc: `${CDN}/go/go-original-wordmark.svg`,        label: 'Go' },
       { imgSrc: `${CDN}/html5/html5-original.svg`,           label: 'HTML' },
       { imgSrc: `${CDN}/css3/css3-original.svg`,             label: 'CSS' },
     ],
@@ -59,17 +65,11 @@ const skillCategories = [
 
 const Skill = () => {
   return (
-      <section id="skills" className="section bg-white dark:bg-zinc-950">
+    <section id="skills" className="section bg-white dark:bg-zinc-950">
       <div className="container">
-        {/* Section label */}
-        <div className="flex items-center gap-3 mb-10">
-          <div className="w-8 h-px bg-sky-400" />
-          <span className="text-sm font-medium tracking-widest uppercase text-sky-400">
-            Tech Stack
-          </span>
-        </div>
+        <SectionLabel className="mb-10">Tech Stack</SectionLabel>
 
-        <h2 className="mb-3 text-4xl font-bold text-zinc-900 dark:text-white">
+        <h2 className="mb-3 text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white">
           Tools &amp; Technologien
         </h2>
         <p className="max-w-xl mb-10 leading-relaxed text-zinc-600 dark:text-zinc-400">
@@ -77,30 +77,30 @@ const Skill = () => {
         </p>
 
         {/* Category rows */}
-        <div className="flex flex-col divide-y divide-white/5">
+        <div className="flex flex-col divide-y divide-zinc-200 dark:divide-white/5">
           {skillCategories.map(({ category, items }) => (
             <div
               key={category}
               className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:gap-6"
             >
               {/* Category label */}
-              <span className="flex-shrink-0 w-32 text-xs font-semibold tracking-widest uppercase text-zinc-500">
+              <span className="shrink-0 w-32 text-xs font-semibold tracking-widest uppercase text-zinc-500">
                 {category}
               </span>
 
               {/* Items */}
               <div className="flex flex-wrap gap-2">
-                {items.map(({ imgSrc, label }) => (
+                {items.map(({ imgSrc, label, invertOnDark }) => (
                   <div
                     key={label}
                     className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-zinc-100 border border-zinc-200 hover:border-sky-400/25 hover:bg-zinc-200/50 dark:bg-white/5 dark:border-white/8 dark:hover:bg-white/8 transition-colors duration-200"
                   >
                     <img
                       src={imgSrc}
-                      alt={label}
+                      alt=""
                       width={16}
                       height={16}
-                      className="flex-shrink-0 object-contain w-4 h-4"
+                      className={`shrink-0 object-contain w-4 h-4 ${invertOnDark ? 'dark:invert' : ''}`}
                       onError={(e) => { e.currentTarget.style.opacity = '0.15'; }}
                     />
                     <span className="text-xs text-zinc-700 dark:text-zinc-300 whitespace-nowrap">{label}</span>

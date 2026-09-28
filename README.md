@@ -12,28 +12,48 @@ We are Robin and Kevin – two brothers with a strong passion for web developmen
 
 ---
 
-## Project Setup
+## Tech Stack
 
-This project was created with [Vite](https://vitejs.dev/) and [React](https://react.dev/), using [Tailwind CSS](https://tailwindcss.com/) for styling.
+- [React 19](https://react.dev/) + [Vite 7](https://vitejs.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/) (configured in `src/index.css`, no `tailwind.config.js`)
+- Font: Inter, self-hosted via `@fontsource-variable/inter`
 
-### Getting Started
+## Getting Started
 
-- Dev server: `npm run dev` (runs at http://localhost:5173/)
-- Build: `npm run build`
-- Preview: `npm run preview`
-# React + Vite
+```bash
+npm install
+npm run dev       # http://localhost:5173/
+```
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+| Script | Purpose |
+|---|---|
+| `npm run dev` | Dev server with HMR |
+| `npm run build` | Production build into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | ESLint |
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+public/assets/img/    Images (WebP, max. ~800px wide)
+src/
+├── components/       UI sections and shared components (SectionLabel, ThemeToggle, …)
+├── hooks/            useTheme (dark/light mode, persisted in localStorage)
+├── pages/            Work, Pricing, Contact
+├── utils/            safeStorage (Web Storage without crashes)
+├── App.jsx
+├── index.css         Tailwind import, global styles, animations
+└── main.jsx          Entry point
+```
 
-## React Compiler
+## Conventions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Functional components, one component per file, PascalCase file names
+- Imports with explicit `.jsx` / `.js` extension
+- Section headings use `<SectionLabel>`
+- Every colour needs a light **and** a `dark:` variant
+- New images: convert to WebP and resize to the displayed size (×2 for retina)
 
-## Expanding the ESLint configuration
+## Contact Form
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The form currently posts to Formspree. The switch to EmailJS is described in [WORKBOOK.md](WORKBOOK.md), chapter 4.

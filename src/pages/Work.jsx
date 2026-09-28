@@ -1,22 +1,24 @@
+import SectionLabel from "../components/SectionLabel.jsx";
+
 const works = [
   {
-    imgSrc: "/assets/img/lfg_homepage.png",
+    imgSrc: "/assets/img/lfg_homepage.webp",
     title: "Langenfeld Garage",
     description:
       "Homepage für ein lokales Autohaus — modernes Design, klare Struktur und SEO-Optimierung.",
     tags: ["Web Design", "Mailing", "Development"],
-    projectLink: "https://Keroweb-test.ch",
+    projectLink: "https://langenfeld.ch",
   },
   {
-    imgSrc: "/assets/img/galloway_homepage.png",
+    imgSrc: "/assets/img/galloway_homepage.webp",
     title: "Henrys Farm Homepage",
     description:
       "Single-Page-Application für einen landwirtschaftlichen Betrieb mit attraktiver Bildwelt.",
-    tags: [ "Web Design", "Development","SPA"],
+    tags: ["Web Design", "Development", "SPA"],
     projectLink: "https://projekt-galloway.onrender.com",
   },
   {
-    imgSrc: "/assets/img/tribute-night.png",
+    imgSrc: "/assets/img/tribute-night.webp",
     title: "Tribute Night Event",
     description:
       "Event-Homepage für eine Live-Musik-Veranstaltungsreihe mit Ticket-Integration.",
@@ -24,26 +26,26 @@ const works = [
     projectLink: "https://tribute-night.onrender.com/",
   },
   {
-    imgSrc: "/assets/img/mietwage-tool.png",
+    imgSrc: "/assets/img/mietwage-tool.webp",
     title: "Mietwagen Tool",
     description:
-      "Vollständiges Mietwagen-Tool mit Datenbank integrierung auf neustem Industriellem Standart.",
-    tags: ["API", "Mailing", "Industrie", "Fullstack", ],
+      "Vollständiges Mietwagen-Tool mit Datenbankintegration nach neuestem industriellem Standard.",
+    tags: ["API", "Mailing", "Industrie", "Fullstack"],
     projectLink: null,
   },
   {
-    imgSrc: "/assets/img/autofire_homepage.png",
-    title: "Autofire Homepage",
+    imgSrc: "/assets/img/autofire_homepage.webp",
+    title: "AutoMeier Homepage",
     description:
       "Moderne SPA für einen Automotive-Dienstleister mit animiertem Hero und Servicepages.",
     tags: ["Web Design", "SPA", "Development"],
-    projectLink: "https://projekt-auto.onrender.com",
+    projectLink: null,
   },
-    {
-    imgSrc: "/assets/img/trippin.png",
+  {
+    imgSrc: "/assets/img/trippin.webp",
     title: "Trippin' Reise Planer",
     description:
-      "Reiseplaner für individuelle und gruppenbasierte Reisen- Vorschläge für Aktivitäten und Restaurants/Bars/Pubs.",
+      "Reiseplaner für individuelle und gruppenbasierte Reisen. Erstellt Vorschlägen für Aktivitäten, Restaurants, Bars und Pubs.",
     tags: ["Web Design", "Development", "Fullstack"],
     projectLink: null,
   },
@@ -62,22 +64,16 @@ const tagStyles = {
 };
 
 const tagClass = (tag) =>
-  tagStyles[tag] || "bg-zinc-700/50 text-zinc-400 border-zinc-700";
+  tagStyles[tag] ?? "bg-zinc-100 text-zinc-600 border-zinc-200 dark:bg-zinc-700/50 dark:text-zinc-400 dark:border-zinc-700";
 
 export default function Work() {
   return (
     <section id="work" className="section bg-white dark:bg-zinc-950">
       <div className="container">
-        {/* Section label */}
-        <div className="flex items-center gap-3 mb-12">
-          <div className="w-8 h-px bg-sky-400" />
-          <span className="text-sm font-medium tracking-widest uppercase text-sky-400">
-            Projekte
-          </span>
-        </div>
+        <SectionLabel>Projekte</SectionLabel>
 
         <div className="mb-12">
-          <h2 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-white">
+          <h2 className="mb-4 text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white">
             Ausgewählte Projekte
           </h2>
           <p className="max-w-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
@@ -87,9 +83,9 @@ export default function Work() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {works.map((project, idx) => (
-            <div
-              key={idx}
+          {works.map((project) => (
+            <article
+              key={project.title}
               className="flex flex-col overflow-hidden transition-all duration-300 border group bg-gray-50 border-zinc-200 rounded-2xl hover:border-sky-400/25 hover:bg-white dark:bg-white/3 dark:border-white/8 dark:hover:border-sky-400/25 dark:hover:bg-white/5"
             >
               {/* Image */}
@@ -97,6 +93,8 @@ export default function Work() {
                 <img
                   src={project.imgSrc}
                   alt={project.title}
+                  width={800}
+                  height={400}
                   loading="lazy"
                   decoding="async"
                   className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
@@ -109,7 +107,7 @@ export default function Work() {
                 <h3 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-white">
                   {project.title}
                 </h3>
-                <p className="flex-1 mb-4 text-sm leading-relaxed text-zinc-500">
+                <p className="flex-1 mb-4 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
                   {project.description}
                 </p>
 
@@ -134,8 +132,10 @@ export default function Work() {
                     className="inline-flex items-center gap-2 text-sm font-medium transition-colors text-sky-400 hover:text-sky-300 group/link"
                   >
                     Live ansehen
+                    <span className="sr-only"> – {project.title} (öffnet in neuem Tab)</span>
                     <svg
                       className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1"
+                      aria-hidden="true"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -145,10 +145,10 @@ export default function Work() {
                     </svg>
                   </a>
                 ) : (
-                  <span className="text-sm text-zinc-400 dark:text-zinc-600">Coming soon</span>
+                  <span className="text-sm text-zinc-500">Coming soon</span>
                 )}
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

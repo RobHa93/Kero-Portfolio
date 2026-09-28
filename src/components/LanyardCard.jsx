@@ -1,8 +1,8 @@
 const LanyardCard = ({
   ready,
-  name = "Robin & Kevin",
+  name,
+  photo,
   role = "Full-Stack Developer",
-  photo1 = "/assets/img/Foto.png",
   delay = 0,
   stringHeight = "28vh",
 }) => {
@@ -11,11 +11,11 @@ const LanyardCard = ({
       className={`flex flex-col items-center select-none ${
         ready ? "swing-in" : "opacity-0"
       }`}
-      style={{ transformOrigin: "top center", animationDelay: `${delay}s` }}
+      style={{ animationDelay: `${delay}s` }}
     >
       {/* Lanyard string */}
       <div
-        className="w-3 rounded-full bg-gradient-to-b from-transparent via-zinc-400/70 to-zinc-500/90"
+        className="w-3 rounded-full bg-linear-to-b from-transparent via-zinc-400/70 to-zinc-500/90"
         style={{ height: stringHeight }}
       />
 
@@ -30,8 +30,10 @@ const LanyardCard = ({
         {/* Photo */}
         <div className="overflow-hidden aspect-4/5">
           <img
-            src={photo1}
+            src={photo}
             alt={name}
+            width={264}
+            height={330}
             className="object-cover object-top w-full h-full"
           />
         </div>
@@ -39,10 +41,10 @@ const LanyardCard = ({
         {/* Card info */}
         <div className="px-4 pt-3 pb-4 bg-white">
           <p className="mb-5 font-mono text-xs tracking-widest uppercase text-zinc-400">
-            kero.dev
+            kero-web.ch
           </p>
           <h3 className="text-base font-bold leading-snug text-zinc-900">{name}</h3>
-          <p className="mb-3 text-s text-zinc-500">{role}</p>
+          <p className="mb-3 text-sm text-zinc-500">{role}</p>
         </div>
       </div>
     </div>

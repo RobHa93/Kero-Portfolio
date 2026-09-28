@@ -1,12 +1,21 @@
 import { useState } from "react";
 
+// Einmalige Setup-Kosten – gelten für alle Pakete gleich.
+const SETUP_FEES = {
+  singlepage: "ab CHF 299.-",
+  multipage: "ab CHF 999.-",
+};
+
+const BILLING_OPTIONS = [
+  { id: "monthly", label: "Monatlich", hint: "pro Monat, monatlich abgerechnet" },
+  { id: "annually", label: "Jährlich", hint: "pro Jahr, jährlich abgerechnet" },
+];
+
 const tiers = [
   {
     id: "hosting",
     name: "Hosting",
-    description: "Deine Website läuft - zuverlässig, sicher und immer erreichbar.",
-    setupOnepager: "ab CHF 299.-",
-    setupMultipager: "ab CHF 999.-",
+    description: "Deine Website läuft – zuverlässig, sicher und immer erreichbar.",
     price: { monthly: "CHF 49.-", annually: "CHF 588.-" },
     featured: false,
     highlights: [
@@ -22,8 +31,6 @@ const tiers = [
     id: "business",
     name: "Business",
     description: "Laufende Betreuung für deinen professionellen Webauftritt.",
-    setupOnepager: "ab CHF 299.-",
-    setupMultipager: "ab CHF 999.-",
     price: { monthly: "CHF 75.-", annually: "CHF 900.-" },
     featured: true,
     highlights: [
@@ -40,8 +47,6 @@ const tiers = [
     id: "pro",
     name: "Pro",
     description: "Ideal für grössere Multi-Pager- und SPA-Projekte mit mehr Betreuungsbedarf.",
-    setupOnepager: "ab CHF 299.-",
-    setupMultipager: "ab CHF 999.-",
     price: { monthly: "CHF 149.-", annually: "CHF 1'788.-" },
     featured: false,
     highlights: [
@@ -57,7 +62,7 @@ const tiers = [
 
 const CheckIcon = () => (
   <svg
-    className="flex-none w-4 h-4 text-sky-400"
+    className="flex-none w-4 h-4 mt-0.5 text-sky-400"
     viewBox="0 0 20 20"
     fill="currentColor"
     aria-hidden="true"
@@ -72,6 +77,7 @@ const CheckIcon = () => (
 
 const Pricing = () => {
   const [billing, setBilling] = useState("monthly");
+  const billingHint = BILLING_OPTIONS.find((option) => option.id === billing).hint;
 
   return (
     <section id="pricing" className="section bg-gray-50 dark:bg-zinc-950">
@@ -81,43 +87,42 @@ const Pricing = () => {
           <p className="mb-3 text-sm font-semibold tracking-widest uppercase text-sky-400">
             Preise
           </p>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-5xl">
+          <h2 className="mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white md:text-5xl">
             Transparent &amp; fair
           </h2>
           <p className="max-w-xl mx-auto text-zinc-600 dark:text-zinc-400">
             Einmaliges Setup, monatliche Betreuung. Keine versteckten Kosten.
           </p>
-          <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-500">
+          <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
             Monatlich kündbar — keine Mindestlaufzeit.
           </p>
 
           {/* Toggle */}
-          <div className="inline-flex items-center gap-1 p-1 mt-8 text-sm font-semibold rounded-full bg-zinc-200 dark:bg-white/5">
-            <button
-              onClick={() => setBilling("monthly")}
-              className={`px-4 py-1.5 rounded-full transition-colors duration-200 ${
-                billing === "monthly"
-                  ? "bg-sky-400 text-zinc-950"
-                  : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-              }`}
-            >
-              Monatlich
-            </button>
-            <button
-              onClick={() => setBilling("annually")}
-              className={`px-4 py-1.5 rounded-full transition-colors duration-200 ${
-                billing === "annually"
-                  ? "bg-sky-400 text-zinc-950"
-                  : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-              }`}
-            >
-              Jährlich
-            </button>
+          <div
+            className="inline-flex items-center gap-1 p-1 mt-8 text-sm font-semibold rounded-full bg-zinc-200 dark:bg-white/5"
+            role="group"
+            aria-label="Abrechnungsintervall"
+          >
+            {BILLING_OPTIONS.map(({ id, label }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setBilling(id)}
+                aria-pressed={billing === id}
+                className={`px-4 py-2 rounded-full transition-colors duration-200 ${
+                  billing === id
+                    ? "bg-sky-400 text-zinc-950"
+                    : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
 
         {/* Cards */}
-        <div className="grid items-stretch grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid items-stretch max-w-md grid-cols-1 gap-6 mx-auto lg:max-w-none lg:grid-cols-3">
           {tiers.map((tier) => (
             <div
               key={tier.id}
@@ -136,19 +141,18 @@ const Pricing = () => {
               {/* Name & description */}
               <div className="mb-6">
                 <h3 className="mb-1 text-lg font-bold text-zinc-900 dark:text-white">{tier.name}</h3>
-                <p className="text-sm text-zinc-500">{tier.description}</p>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">{tier.description}</p>
               </div>
 
               {/* Setup fee */}
               <div className="mb-3">
-                <p className="mb-0.5 text-xs text-zinc-500">
+                <p className="mb-0.5 text-xs text-zinc-500 dark:text-zinc-400">
                   Setup Singlepage:{" "}
-                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{tier.setupOnepager}</span>
+                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{SETUP_FEES.singlepage}</span>
                 </p>
-                <p className="text-xs text-zinc-500">
-                  Setup Multipager{" "}
-                  <span className="text-zinc-600">(bis 5 Seiten)</span>:{" "}
-                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{tier.setupMultipager}</span>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                  Setup Multipager (bis 5 Seiten):{" "}
+                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{SETUP_FEES.multipage}</span>
                 </p>
               </div>
 
@@ -158,8 +162,8 @@ const Pricing = () => {
                   {tier.price[billing]}
                 </span>
               </div>
-              <p className="mb-8 text-xs text-zinc-500">
-                {billing === "annually" ? "pro Jahr, jährlich abgerechnet" : "pro Monat, monatlich abgerechnet"}
+              <p className="mb-8 text-xs text-zinc-500 dark:text-zinc-400">
+                {billingHint}
               </p>
 
               {/* Divider */}
@@ -177,7 +181,7 @@ const Pricing = () => {
 
               {/* Note */}
               {tier.note && (
-                <p className="pt-4 mt-5 text-xs leading-relaxed border-t border-zinc-200 dark:border-white/8 text-zinc-500 dark:text-zinc-600">
+                <p className="pt-4 mt-5 text-xs leading-relaxed border-t border-zinc-200 dark:border-white/8 text-zinc-500">
                   {tier.note}
                 </p>
               )}
@@ -185,7 +189,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        <p className="mt-10 text-sm text-center text-zinc-600">
+        <p className="mt-10 text-sm text-center text-zinc-600 dark:text-zinc-400">
           Alle Preise in CHF. · Individuelle Anfragen?{" "}
           <a href="#contact" className="text-sky-400 hover:underline">
             Schreib uns

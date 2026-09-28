@@ -33,14 +33,20 @@ This is a single-page portfolio application built with React, Vite, and Tailwind
 ### Project Structure
 
 ```
+public/assets/img/    (Images, WebP)
 src/
-  ├── components/     (UI components: Navbar, Hero, About, Skill, etc.)
-  ├── pages/          (Page sections: Work, Contact, Review, etc.)
-  ├── assets/         (Static assets)
+  ├── components/     (UI components: Navbar, Hero, About, Skill, SectionLabel, ThemeToggle, etc.)
+  ├── hooks/          (useTheme)
+  ├── pages/          (Page sections: Work, Pricing, Contact)
+  ├── utils/          (safeStorage)
   ├── App.jsx         (Main application component)
   ├── main.jsx        (Entry point)
   └── index.css       (Global styles with Tailwind CSS v4)
 ```
+
+- Every colour needs a light and a `dark:` variant
+- Access localStorage/sessionStorage only via `safeStorage`
+- Use `<SectionLabel>` for section labels
 
 ### Running the Project
 

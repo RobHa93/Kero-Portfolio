@@ -1,7 +1,7 @@
 {
   "name": "kero-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "prop-types": "^15.8.1",
+    "@fontsource-variable/inter": "^5.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -20,7 +20,6 @@
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "autoprefixer": "^10.4.24",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
@@ -29,14 +28,13 @@
     "tailwindcss": "^4.1.18",
     "vite": "^7.2.4"
   },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "eslint.config.js",
+  "description": "Portfolio-Website von KeRo WebDev (Kevin & Robin) – React, Vite und Tailwind CSS.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RobHa93/Kero-Portfolio.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Kevin & Robin",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/RobHa93/Kero-Portfolio/issues"
   },

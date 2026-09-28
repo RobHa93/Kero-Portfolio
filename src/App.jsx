@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useCallback, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
@@ -10,39 +10,39 @@ import Contact from "./pages/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import LoadingOverlay from "./components/LoadingOverlay.jsx";
+import { useTheme } from "./hooks/useTheme.js";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
+  const { isDark, toggleTheme } = useTheme();
+  const handleLoaderDone = useCallback(() => setLoaded(true), []);
 
   return (
     <>
-      <LoadingOverlay onDone={() => setLoaded(true)} />
+      <LoadingOverlay onDone={handleLoaderDone} />
       <div
         className="text-zinc-900 bg-white dark:text-white dark:bg-zinc-950"
         style={{
-          opacity:    loaded ? 1 : 0,
+          opacity: loaded ? 1 : 0,
           transition: "opacity 650ms ease-in",
         }}
       >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-60 focus:px-4 focus:py-2 focus:rounded-full focus:bg-sky-400 focus:text-zinc-950 focus:font-semibold"
+        >
+          Zum Inhalt springen
+        </a>
         <Navbar isDark={isDark} toggleTheme={toggleTheme} />
-        <Hero loaded={loaded} />
-        <About />
-        <HowWeWork />
-        <Skill />
-        <Work />
-        <Pricing />
-        <Contact />
+        <main id="main">
+          <Hero loaded={loaded} />
+          <About />
+          <HowWeWork />
+          <Skill />
+          <Work />
+          <Pricing />
+          <Contact />
+        </main>
         <Footer />
         <ScrollToTop />
       </div>
