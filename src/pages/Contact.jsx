@@ -1,4 +1,9 @@
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import SectionLabel from "../components/SectionLabel.jsx";
+
+// Werden von Vite beim Build eingelesen (.env.local bzw. Hosting-Dashboard).
+const { VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY } = import.meta.env;
 
 // text-base (16px) auf Mobile verhindert, dass iOS beim Antippen hineinzoomt.
 const inputClass =
@@ -6,10 +11,35 @@ const inputClass =
   "placeholder:text-zinc-400 rounded-xl focus:outline-none focus:border-sky-400/50 focus:ring-2 focus:ring-sky-400/20 " +
   "dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder:text-zinc-500";
 
-// TODO: Auf EmailJS umstellen – Anleitung in WORKBOOK.md, Kapitel 4.
-const FORM_ENDPOINT = "https://formspree.io/f/mayvldwp";
+const STATUS_MESSAGES = {
+  success: "Danke! Deine Nachricht ist bei uns angekommen.",
+  error: "Das hat leider nicht geklappt. Bitte versuche es später nochmals.",
+};
 
 const Contact = () => {
+  const formRef = useRef(null);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = formRef.current;
+
+    // Honeypot: Bots füllen versteckte Felder aus
+    if (form.elements.website.value) return;
+
+    setStatus("sending");
+    try {
+      await emailjs.sendForm(VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, form, {
+        publicKey: VITE_EMAILJS_PUBLIC_KEY,
+      });
+      form.reset();
+      setStatus("success");
+    } catch (error) {
+      console.error("EmailJS:", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <section id="contact" className="section bg-white dark:bg-zinc-950">
       <div className="container">
@@ -26,7 +56,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <form action={FORM_ENDPOINT} method="POST" className="flex flex-col gap-4">
+          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <label htmlFor="contact-name" className="sr-only">Name</label>
               <input
@@ -58,12 +88,32 @@ const Contact = () => {
               rows={6}
               className={`${inputClass} resize-none`}
             />
+
+            {/* Honeypot – für Menschen unsichtbar */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
             <button
               type="submit"
-              className="w-full px-6 py-3 font-semibold transition-colors duration-200 bg-sky-400 text-zinc-950 rounded-xl hover:bg-emerald-300 sm:w-auto sm:self-start"
+              disabled={status === "sending"}
+              className="w-full px-6 py-3 font-semibold transition-colors duration-200 bg-sky-400 text-zinc-950 rounded-xl hover:bg-emerald-300 disabled:opacity-60 disabled:cursor-wait sm:w-auto sm:self-start"
             >
-              Nachricht senden
+              {status === "sending" ? "Wird gesendet…" : "Nachricht senden"}
             </button>
+
+            <p
+              role="status"
+              aria-live="polite"
+              className={`text-sm ${status === "error" ? "text-red-500" : "text-emerald-500"}`}
+            >
+              {STATUS_MESSAGES[status] ?? ""}
+            </p>
           </form>
         </div>
       </div>

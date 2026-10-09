@@ -1,11 +1,5 @@
 import { useState } from "react";
 
-// Einmalige Setup-Kosten – gelten für alle Pakete gleich.
-const SETUP_FEES = {
-  singlepage: "ab CHF 299.-",
-  multipage: "ab CHF 999.-",
-};
-
 const BILLING_OPTIONS = [
   { id: "monthly", label: "Monatlich", hint: "pro Monat, monatlich abgerechnet" },
   { id: "annually", label: "Jährlich", hint: "pro Jahr, jährlich abgerechnet" },
@@ -23,7 +17,6 @@ const tiers = [
       "SSL-Zertifikat",
       "Automatische Backups",
       "Wir behalten deine Seite im Blick",
-      "Mobile optimiert",
     ],
     note: null,
   },
@@ -60,6 +53,32 @@ const tiers = [
   },
 ];
 
+// Wie die Website zu uns kommt – einmalig, vor dem Start des Hosting-Pakets.
+const startOptions = [
+  {
+    id: "new",
+    title: "Neue Website",
+    description: "Wir bauen deine Website von Grund auf. Design, Umsetzung und Launch.",
+    prices: [
+      { label: "Singlepage", value: "ab CHF 299.-" },
+      { label: "Multipager (bis 5 Seiten)", value: "ab CHF 999.-" },
+      { label: "Webapplikation / SPA", value: "auf Anfrage" },
+    ],
+  },
+  {
+    id: "existing",
+    title: "Bestehendes Projekt",
+    description: "Wir überarbeiten, erweitern oder modernisieren deine bestehende Website.",
+    prices: [{ label: "Updates & Überarbeitung", value: "nach Aufwand" }],
+  },
+  {
+    id: "hosting-only",
+    title: "Nur Hosting",
+    description: "Deine Website ist fertig? Wir ziehen sie zu uns um und kümmern uns um den Betrieb.",
+    prices: [],
+  },
+];
+
 const CheckIcon = () => (
   <svg
     className="flex-none w-4 h-4 mt-0.5 text-sky-400"
@@ -91,7 +110,7 @@ const Pricing = () => {
             Transparent &amp; fair
           </h2>
           <p className="max-w-xl mx-auto text-zinc-600 dark:text-zinc-400">
-            Einmaliges Setup, monatliche Betreuung. Keine versteckten Kosten.
+            Wir hosten und betreuen deine Website. Keine versteckten Kosten.
           </p>
           <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
             Monatlich kündbar — keine Mindestlaufzeit.
@@ -144,24 +163,10 @@ const Pricing = () => {
                 <p className="text-sm text-zinc-500 dark:text-zinc-400">{tier.description}</p>
               </div>
 
-              {/* Setup fee */}
-              <div className="mb-3">
-                <p className="mb-0.5 text-xs text-zinc-500 dark:text-zinc-400">
-                  Setup Singlepage:{" "}
-                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{SETUP_FEES.singlepage}</span>
-                </p>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                  Setup Multipager (bis 5 Seiten):{" "}
-                  <span className="font-medium text-zinc-700 dark:text-zinc-300">{SETUP_FEES.multipage}</span>
-                </p>
-              </div>
-
-              {/* Monthly price */}
-              <div className="flex items-end gap-2 mb-1">
-                <span className="text-4xl font-bold text-zinc-900 dark:text-white">
-                  {tier.price[billing]}
-                </span>
-              </div>
+              {/* Price */}
+              <span className="mb-1 text-4xl font-bold text-zinc-900 dark:text-white">
+                {tier.price[billing]}
+              </span>
               <p className="mb-8 text-xs text-zinc-500 dark:text-zinc-400">
                 {billingHint}
               </p>
@@ -187,6 +192,42 @@ const Pricing = () => {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Start options – einmalig, vor dem Hosting */}
+        <div className="mt-20">
+          <div className="mb-8 text-center">
+            <h3 className="mb-2 text-xl font-bold text-zinc-900 dark:text-white">
+              So kommt deine Website zu uns
+            </h3>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              Einmalig, bevor dein Hosting-Paket startet.
+            </p>
+          </div>
+
+          <div className="grid max-w-md grid-cols-1 gap-4 mx-auto lg:max-w-none lg:grid-cols-3">
+            {startOptions.map((option) => (
+              <div
+                key={option.id}
+                className="flex flex-col p-6 border rounded-xl bg-white border-zinc-200 dark:bg-white/3 dark:border-white/8"
+              >
+                <h4 className="mb-1 font-semibold text-zinc-900 dark:text-white">{option.title}</h4>
+                <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                  {option.description}
+                </p>
+                {option.prices.length > 0 && (
+                  <dl className="pt-4 mt-4 space-y-1.5 text-xs border-t border-zinc-200 dark:border-white/8">
+                    {option.prices.map(({ label, value }) => (
+                      <div key={label} className="flex justify-between gap-4">
+                        <dt className="text-zinc-500 dark:text-zinc-400">{label}</dt>
+                        <dd className="font-medium text-right text-zinc-700 dark:text-zinc-300">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
         <p className="mt-10 text-sm text-center text-zinc-600 dark:text-zinc-400">
